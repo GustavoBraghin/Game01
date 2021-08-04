@@ -13,9 +13,12 @@ import SpriteKit
 class GameScene: SKScene {
     
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
+    var score: Int
     
     // Nosso método init. Ele é o primeiro método a ser chamado sempre que nossa cena for iniciada!
     override init(size: CGSize) {
+        self.score = 0
+        
         super.init(size: size)
         
         // Métodos para preparação do projeto inicial
@@ -50,6 +53,11 @@ class GameScene: SKScene {
         //if touches the bomb, removes it from the scene and run explosion animation
         if node.name == "bomb" {
             node.removeFromParent()
+            
+            //udates score and scoreLabel
+            self.score += 1
+            self.scoreLabel.text = "\(score)"
+            
             self.createExplosion(position: touchLocation)
         }
         
@@ -144,7 +152,7 @@ class GameScene: SKScene {
     //func to create the score label
     func createScoreLabel(with position: CGPoint){
         
-        scoreLabel.text = "0"
+        scoreLabel.text = "\(score)"
         scoreLabel.fontSize = 50
         scoreLabel.fontColor = .white
         scoreLabel.position = position
