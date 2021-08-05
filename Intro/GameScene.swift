@@ -89,6 +89,9 @@ class GameScene: SKScene {
      */
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
+        
+        //thif func removes the bombs that were not destroyed from scene
+        removeBomb()
     }
     
     // MARK: Elements
@@ -149,10 +152,14 @@ class GameScene: SKScene {
         self.applyImpulseTo(node: bomb)
     }
     
-//    func removeBomb(){
-//        
-//        if 
-//    }
+    //func to remove bomb from scene if it wasn`t destroyed
+    func removeBomb(){
+        if let bomb = childNode(withName: "bomb"){
+            if bomb.intersects(self) == false {
+                bomb.removeFromParent()
+            }
+        }
+    }
     
     //func to create the score label
     func createScoreLabel(with position: CGPoint){
