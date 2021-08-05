@@ -127,10 +127,10 @@ class GameScene: SKScene {
     func createBomb(position: CGPoint) {
         
         // Crio um novo node do tipo Sprite, com base na imagem Bomb_1.png 💣
-        let bomb = SKSpriteNode(imageNamed: "Bomb_1")
+        let bomb = SKSpriteNode(imageNamed: "green.png")
         
         // Defino o tamanho do meu sprite como 75% do tamanho original
-        bomb.setScale(0.75)
+        bomb.setScale(0.25)
         
         // Insiro a Posição (X, Y) ao meu node.
         //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)

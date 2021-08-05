@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66130FE226BC91D5002DA3C0 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 66130FE126BC91D5002DA3C0 /* green.png */; };
 		66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66A4778126BC5E2200C4652E /* spaceBackground.jpg */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
 		C61DEB4822514B09004BAADF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4722514B09004BAADF /* GameScene.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66130FE126BC91D5002DA3C0 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		66A4778126BC5E2200C4652E /* spaceBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceBackground.jpg; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* Intro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61DEB4122514B09004BAADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				C61DEB6322514C34004BAADF /* Explosion_10.png */,
 				C61DEB6022514C34004BAADF /* Explosion_11.png */,
 				C61DEB6122514C34004BAADF /* Explosion_12.png */,
+				66130FE126BC91D5002DA3C0 /* green.png */,
 				C61DEB5D22514C34004BAADF /* Wind_1.png */,
 				C61DEB6E22514C35004BAADF /* Wind_2.png */,
 				C61DEB7122514C35004BAADF /* Wind_3.png */,
@@ -298,6 +301,7 @@
 				C61DEB9222514C37004BAADF /* Explosion_2.png in Resources */,
 				C61DEB5222514B0A004BAADF /* LaunchScreen.storyboard in Resources */,
 				C61DEB8822514C37004BAADF /* Explosion_1.png in Resources */,
+				66130FE226BC91D5002DA3C0 /* green.png in Resources */,
 				C61DEB9522514C37004BAADF /* Wind_4.png in Resources */,
 				C61DEB7B22514C37004BAADF /* Wind_9.png in Resources */,
 				C61DEB8D22514C37004BAADF /* Wind_12.png in Resources */,

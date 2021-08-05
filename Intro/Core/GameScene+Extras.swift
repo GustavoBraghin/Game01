@@ -88,8 +88,8 @@ extension GameScene {
      */
     func applyImpulseTo(node: SKNode) {
         
-        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -10...10), dy: 50), duration: 0.1)
-        let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.01...0.01), duration: 0.025)
+        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -10...10), dy: 65), duration: 0.1)
+        let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.005...0.005), duration: 0.025)
         node.run(applyImpulse)
         node.run(applyAngularImpulse)
         
