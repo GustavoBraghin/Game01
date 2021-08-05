@@ -45,7 +45,7 @@ extension GameScene {
         explosion.run(self.explosionSoundAction)
     }
     
-    
+    /*
     func createWind(position: CGPoint) {
         
         let wind = SKSpriteNode(imageNamed: "Wind_1")
@@ -81,7 +81,7 @@ extension GameScene {
         
         return textures
     }
-    
+    */
     
     /**
      Método que aplica impulso a um node usando Actions!

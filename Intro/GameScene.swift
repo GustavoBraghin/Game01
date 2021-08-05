@@ -99,7 +99,7 @@ class GameScene: SKScene {
     func createBackground(with position: CGPoint) {
         
         // Declaro minha constante de background. Um Sprite que vem do arquivo Background.png
-        let background = SKSpriteNode(imageNamed: "Background")
+        let background = SKSpriteNode(imageNamed: "spaceBackground.jpg")
         
         // Insiro a Posição (X, Y) ao meu node.
         background.position = position
@@ -108,7 +108,7 @@ class GameScene: SKScene {
         background.zPosition = -1
         
         // Altero diretamente a escala X e Y (largura e altura) do nosso background para 275% do tamanho original
-        background.setScale(2.75)
+        //background.setScale(0.75)
         
         // Retiro o Anti-Aliasing (redutor de serrilhado [por ser pixel art])
         background.texture?.filteringMode = .nearest
@@ -127,10 +127,11 @@ class GameScene: SKScene {
         let bomb = SKSpriteNode(imageNamed: "Bomb_1")
         
         // Defino o tamanho do meu sprite como 75% do tamanho original
-        bomb.setScale(0.5)
+        bomb.setScale(0.75)
         
         // Insiro a Posição (X, Y) ao meu node.
-        bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)
+        //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)
+        bomb.position = position
         
         // Defino um nome para minha bomba dentro da cena para fácil acesso posteriormente
         bomb.name = "bomb"
@@ -145,9 +146,13 @@ class GameScene: SKScene {
         self.addChild(bomb)
         
         // Aplico uma ação de impulso para minha bomba (usando nosso sistema de física 😎)
-        //self.applyImpulseTo(node: bomb)
-
+        self.applyImpulseTo(node: bomb)
     }
+    
+//    func removeBomb(){
+//        
+//        if 
+//    }
     
     //func to create the score label
     func createScoreLabel(with position: CGPoint){
@@ -203,11 +208,11 @@ class GameScene: SKScene {
     private lazy var explosionTextures: [SKTexture] = {
         return self.getExplosionTextures()
     }()
-    
+    /*
     lazy var windTextures: [SKTexture] = {
         return self.getWindTextures()
     }()
-    
+    */
     lazy var explosionSoundAction: SKAction = {
         return SKAction.playSoundFileNamed("explosion_sound.wav", waitForCompletion: false)
     }()
@@ -220,7 +225,7 @@ class GameScene: SKScene {
     func startWorldEvents(with sceneSize: CGSize) {
         // Crio uma explosão. Esse método não faz parte da aula.
         self.createExplosion(position: CGPoint(x: sceneSize.width/2, y: sceneSize.height/2))
-        self.startWind(range: sceneSize)
+        //self.startWind(range: sceneSize)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -16,7 +16,9 @@ extension GameScene {
         
         let createBomb = SKAction.run {
             let xPosition = CGFloat.random(in: 0.0...(self.scene?.size.width)!)
-            let yPosition = CGFloat(50.0)
+            let yPosition = CGFloat((self.scene?.size.height)!*0.05)
+            //print to discover the value of y point on scene
+            //print((self.scene?.size.height)!)
             self.createBomb(position: CGPoint(x: xPosition, y: yPosition))
         }
         let waitInBetween = SKAction.wait(forDuration: timePerBomb*(TimeInterval.random(in: 0.55...1.5)))
@@ -28,7 +30,7 @@ extension GameScene {
         self.run(repeatForever)
         
     }
-    
+    /*
     func startWind(range: CGSize) {
         
         let createWindNode = SKAction.run {
@@ -44,5 +46,5 @@ extension GameScene {
         
         self.run(repeatForever)
         
-    }
+    }*/
 }

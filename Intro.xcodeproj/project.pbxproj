@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66A4778126BC5E2200C4652E /* spaceBackground.jpg */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
 		C61DEB4822514B09004BAADF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4722514B09004BAADF /* GameScene.swift */; };
 		C61DEB4A22514B09004BAADF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4922514B09004BAADF /* GameViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66A4778126BC5E2200C4652E /* spaceBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceBackground.jpg; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* Intro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61DEB4122514B09004BAADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C61DEB4722514B09004BAADF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C61DEB7922514C36004BAADF /* Background.png */,
+				66A4778126BC5E2200C4652E /* spaceBackground.jpg */,
 				C61DEB6222514C34004BAADF /* Bomb_1.png */,
 				C61DEB6922514C35004BAADF /* Bomb_2.png */,
 				C61DEB7422514C36004BAADF /* Bomb_3.png */,
@@ -307,6 +310,7 @@
 				C67BF9232253A2BB00DA60B3 /* explosion_sound.wav in Resources */,
 				C61DEB8B22514C37004BAADF /* Wind_11.png in Resources */,
 				C61DEB8A22514C37004BAADF /* Explosion_9.png in Resources */,
+				66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */,
 				C61DEB8022514C37004BAADF /* Explosion_11.png in Resources */,
 				C61DEB9422514C37004BAADF /* Bomb_3.png in Resources */,
 				C61DEB8E22514C37004BAADF /* Wind_2.png in Resources */,
