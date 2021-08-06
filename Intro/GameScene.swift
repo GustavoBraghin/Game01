@@ -15,6 +15,10 @@ class GameScene: SKScene {
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
     
+    let wallLeftCategory:   UInt32 = 0x1 << 0 // 1
+    let wallRightCategory:  UInt32 = 0x1 << 1 // 2
+    let enemyCategory:      UInt32 = 0x1 << 2 // 4
+    
     // Nosso método init. Ele é o primeiro método a ser chamado sempre que nossa cena for iniciada!
     override init(size: CGSize) {
         self.score = 0
@@ -25,12 +29,13 @@ class GameScene: SKScene {
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
         self.createScoreLabel(with: CGPoint(x: size.width*0.5, y: size.height*0.85))
+        self.createWallLeft()
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
         
-        self.generateBombs(timePerBomb: 1)
+        self.generateEnemy(timePerEnemy: 1)
         // Não faz parte da nossa aula
         self.startWorldEvents(with: view.frame.size)
         //createBomb(position: CGPoint(x: size.width/2, y: size.height*0.8))
@@ -51,7 +56,7 @@ class GameScene: SKScene {
         guard let node = self.nodes(at: touchLocation).first else { return }
         
         //if touches the bomb, removes it from the scene and run explosion animation
-        if node.name == "bomb" {
+        if node.name == "enemy" {
             node.removeFromParent()
             
             //udates score and scoreLabel
@@ -90,8 +95,8 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
         
-        //thif func removes the bombs that were not destroyed from scene
-        removeBomb()
+        //this func removes the bombs that were not destroyed from scene
+        removeEnemyNode()
     }
     
     // MARK: Elements
@@ -124,39 +129,40 @@ class GameScene: SKScene {
     /**
      Nosso método criador de uma bomba. Ele recebe como parâmetro uma posição (CGPoint).
      */
-    func createBomb(position: CGPoint) {
+    func createEnemy(position: CGPoint) {
         
         // Crio um novo node do tipo Sprite, com base na imagem Bomb_1.png 💣
-        let bomb = SKSpriteNode(imageNamed: "green.png")
+        let enemy = SKSpriteNode(imageNamed: "green.png")
         
         // Defino o tamanho do meu sprite como 75% do tamanho original
-        bomb.setScale(0.25)
+        enemy.setScale(0.25)
         
         // Insiro a Posição (X, Y) ao meu node.
         //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)
-        bomb.position = position
+        enemy.position = position
         
         // Defino um nome para minha bomba dentro da cena para fácil acesso posteriormente
-        bomb.name = "bomb"
+        enemy.name = "enemy"
         
         // A ZPosition (posição Z [profundidade]) é definida. Por ser uma bomba, ele ficará na frente do background.
-        bomb.zPosition = 1
+        enemy.zPosition = 1
         
         // Configuro a sprite para passar a receber interações de física.
-        bomb.setupDefaultPhysicsBody()
-        
+        enemy.setupDefaultPhysicsBody()
+        enemy.physicsBody?.categoryBitMask = enemyCategory
+        enemy.physicsBody?.contactTestBitMask = wallLeftCategory | wallRightCategory
         // Adiciono minha bomba à minha cena (ela vira filha da minha cena)
-        self.addChild(bomb)
+        self.addChild(enemy)
         
         // Aplico uma ação de impulso para minha bomba (usando nosso sistema de física 😎)
-        self.applyImpulseTo(node: bomb)
+        self.applyImpulseTo(node: enemy)
     }
     
     //func to remove bomb from scene if it wasn`t destroyed
-    func removeBomb(){
-        if let bomb = childNode(withName: "bomb"){
-            if bomb.intersects(self) == false {
-                bomb.removeFromParent()
+    func removeEnemyNode(){
+        if let enemy = childNode(withName: "enemy"){
+            if enemy.intersects(self) == false {
+                enemy.removeFromParent()
             }
         }
     }
@@ -172,6 +178,36 @@ class GameScene: SKScene {
         
         self.addChild(scoreLabel)
     }
+    
+    func createWallLeft(){
+
+        let wallLeft = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
+        self.physicsBody = wallLeft
+        self.physicsBody?.friction = 0
+        wallLeft.contactTestBitMask = enemyCategory
+        wallLeft.categoryBitMask = wallLeftCategory
+        
+        let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
+        self.physicsBody = wallRight
+        self.physicsBody?.friction = 0
+        wallRight.contactTestBitMask = enemyCategory
+        wallRight.categoryBitMask = wallRightCategory
+    }
+    
+//    func createWallRight(){
+//
+////        let wall = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
+////        self.physicsBody = wallLeft
+////        self.physicsBody?.friction = 0
+////        wallLeft.contactTestBitMask = enemyCategory
+////        wallLeft.categoryBitMask = wallLeftCategory
+//
+//        let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
+//        self.physicsBody = wallRight
+//        self.physicsBody?.friction = 0
+//        wallRight.contactTestBitMask = enemyCategory
+//        wallRight.categoryBitMask = wallRightCategory
+//    }
     
     
     

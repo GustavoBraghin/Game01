@@ -45,51 +45,14 @@ extension GameScene {
         explosion.run(self.explosionSoundAction)
     }
     
-    /*
-    func createWind(position: CGPoint) {
-        
-        let wind = SKSpriteNode(imageNamed: "Wind_1")
-        wind.position = position
-        wind.setScale(CGFloat.random(in: 0.1...0.55))
-        wind.zPosition = 0
-        self.addChild(wind)
-        
-        let animate = self.animate(with: self.windTextures, timePerFrame: 0.125)
-        
-        let move = SKAction.moveTo(x: self.size.width, duration: TimeInterval(Float.random(in: 2...4)))
-        
-        let fade = SKAction.fadeAlpha(to: 0, duration: TimeInterval(Float.random(in: 2...5)))
-        
-        wind.run(animate) {
-            wind.removeFromParent()
-        }
-        
-        wind.run(move)
-        wind.run(fade)
-        
-    }
-    
-    func getWindTextures() -> [SKTexture] {
-        var textures = [SKTexture]()
-        for i in 1...16 {
-            
-            let texture = SKTexture(imageNamed: "Wind_\(i)")
-            texture.filteringMode = .nearest
-            textures.append(texture)
-            
-        }
-        
-        return textures
-    }
-    */
-    
     /**
      Método que aplica impulso a um node usando Actions!
      */
+    
     func applyImpulseTo(node: SKNode) {
         
-        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -10...10), dy: 65), duration: 0.1)
-        let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.005...0.005), duration: 0.025)
+        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -7...7), dy: -20), duration: 0.1)
+        let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.003...0.003), duration: 0.025)
         node.run(applyImpulse)
         node.run(applyAngularImpulse)
         

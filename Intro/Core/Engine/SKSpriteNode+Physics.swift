@@ -14,7 +14,8 @@ extension SKSpriteNode {
         let physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
         self.physicsBody = physicsBody
         self.physicsBody?.mass = 0.05
-        self.physicsBody?.allowsRotation = true
+        self.physicsBody?.allowsRotation = false
+        self.physicsBody?.affectedByGravity = false
     }
     
 }
