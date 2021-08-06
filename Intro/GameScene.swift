@@ -105,7 +105,7 @@ class GameScene: SKScene {
     func createBackground(with position: CGPoint) {
         
         // Declaro minha constante de background. Um Sprite que vem do arquivo Background.png
-        let background = SKSpriteNode(imageNamed: "spaceBackground.jpg")
+        let background = SKSpriteNode(imageNamed: "Starfield2.png")
         
         // Insiro a Posição (X, Y) ao meu node.
         background.position = position
@@ -114,7 +114,7 @@ class GameScene: SKScene {
         background.zPosition = -1
         
         // Altero diretamente a escala X e Y (largura e altura) do nosso background para 275% do tamanho original
-        //background.setScale(0.75)
+        background.setScale(2.0)
         
         // Retiro o Anti-Aliasing (redutor de serrilhado [por ser pixel art])
         background.texture?.filteringMode = .nearest
@@ -133,7 +133,7 @@ class GameScene: SKScene {
         let enemy = SKSpriteNode(imageNamed: "green.png")
         
         // Defino o tamanho do meu sprite como 75% do tamanho original
-        enemy.setScale(0.25)
+        enemy.setScale(0.22)
         
         // Insiro a Posição (X, Y) ao meu node.
         //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)

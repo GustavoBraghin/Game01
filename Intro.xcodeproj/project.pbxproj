@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		66130FE226BC91D5002DA3C0 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 66130FE126BC91D5002DA3C0 /* green.png */; };
+		66A391CF26BDA93D00DC0E85 /* Starfield8.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CC26BDA93D00DC0E85 /* Starfield8.png */; };
+		66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CD26BDA93D00DC0E85 /* Starfield2.png */; };
+		66A391D126BDA93D00DC0E85 /* Starfield7.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CE26BDA93D00DC0E85 /* Starfield7.png */; };
+		66A391D626BDAABA00DC0E85 /* BlueNebula4.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D226BDAAB900DC0E85 /* BlueNebula4.png */; };
+		66A391D726BDAABA00DC0E85 /* BlueNebula7.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D326BDAABA00DC0E85 /* BlueNebula7.png */; };
+		66A391D826BDAABA00DC0E85 /* BlueNebula8.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D426BDAABA00DC0E85 /* BlueNebula8.png */; };
+		66A391D926BDAABA00DC0E85 /* BlueNebula1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D526BDAABA00DC0E85 /* BlueNebula1.png */; };
 		66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66A4778126BC5E2200C4652E /* spaceBackground.jpg */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
 		C61DEB4822514B09004BAADF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4722514B09004BAADF /* GameScene.swift */; };
@@ -56,6 +63,13 @@
 
 /* Begin PBXFileReference section */
 		66130FE126BC91D5002DA3C0 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		66A391CC26BDA93D00DC0E85 /* Starfield8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield8.png; sourceTree = "<group>"; };
+		66A391CD26BDA93D00DC0E85 /* Starfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield2.png; sourceTree = "<group>"; };
+		66A391CE26BDA93D00DC0E85 /* Starfield7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield7.png; sourceTree = "<group>"; };
+		66A391D226BDAAB900DC0E85 /* BlueNebula4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula4.png; sourceTree = "<group>"; };
+		66A391D326BDAABA00DC0E85 /* BlueNebula7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula7.png; sourceTree = "<group>"; };
+		66A391D426BDAABA00DC0E85 /* BlueNebula8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula8.png; sourceTree = "<group>"; };
+		66A391D526BDAABA00DC0E85 /* BlueNebula1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula1.png; sourceTree = "<group>"; };
 		66A4778126BC5E2200C4652E /* spaceBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceBackground.jpg; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* Intro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61DEB4122514B09004BAADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +210,13 @@
 				C61DEB6022514C34004BAADF /* Explosion_11.png */,
 				C61DEB6122514C34004BAADF /* Explosion_12.png */,
 				66130FE126BC91D5002DA3C0 /* green.png */,
+				66A391CD26BDA93D00DC0E85 /* Starfield2.png */,
+				66A391CE26BDA93D00DC0E85 /* Starfield7.png */,
+				66A391CC26BDA93D00DC0E85 /* Starfield8.png */,
+				66A391D526BDAABA00DC0E85 /* BlueNebula1.png */,
+				66A391D226BDAAB900DC0E85 /* BlueNebula4.png */,
+				66A391D326BDAABA00DC0E85 /* BlueNebula7.png */,
+				66A391D426BDAABA00DC0E85 /* BlueNebula8.png */,
 				C61DEB5D22514C34004BAADF /* Wind_1.png */,
 				C61DEB6E22514C35004BAADF /* Wind_2.png */,
 				C61DEB7122514C35004BAADF /* Wind_3.png */,
@@ -291,14 +312,19 @@
 				C61DEB8F22514C37004BAADF /* Wind_5.png in Resources */,
 				C61DEB8422514C37004BAADF /* Explosion_7.png in Resources */,
 				C61DEB8522514C37004BAADF /* Explosion_3.png in Resources */,
+				66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */,
+				66A391D726BDAABA00DC0E85 /* BlueNebula7.png in Resources */,
 				C61DEB9922514C37004BAADF /* Background.png in Resources */,
 				C61DEB8622514C37004BAADF /* Wind_16.png in Resources */,
 				C61DEB8222514C37004BAADF /* Bomb_1.png in Resources */,
 				C61DEB4D22514B09004BAADF /* Main.storyboard in Resources */,
 				C61DEB7D22514C37004BAADF /* Wind_1.png in Resources */,
 				C61DEB4F22514B0A004BAADF /* Assets.xcassets in Resources */,
+				66A391D826BDAABA00DC0E85 /* BlueNebula8.png in Resources */,
+				66A391D926BDAABA00DC0E85 /* BlueNebula1.png in Resources */,
 				C61DEB7C22514C37004BAADF /* Explosion_8.png in Resources */,
 				C61DEB9222514C37004BAADF /* Explosion_2.png in Resources */,
+				66A391D126BDA93D00DC0E85 /* Starfield7.png in Resources */,
 				C61DEB5222514B0A004BAADF /* LaunchScreen.storyboard in Resources */,
 				C61DEB8822514C37004BAADF /* Explosion_1.png in Resources */,
 				66130FE226BC91D5002DA3C0 /* green.png in Resources */,
@@ -307,6 +333,7 @@
 				C61DEB8D22514C37004BAADF /* Wind_12.png in Resources */,
 				C61DEB9322514C37004BAADF /* Wind_8.png in Resources */,
 				C61DEB7F22514C37004BAADF /* Explosion_4.png in Resources */,
+				66A391D626BDAABA00DC0E85 /* BlueNebula4.png in Resources */,
 				C61DEB9822514C37004BAADF /* Wind_13.png in Resources */,
 				C61DEB8322514C37004BAADF /* Explosion_10.png in Resources */,
 				C61DEB7E22514C37004BAADF /* Wind_6.png in Resources */,
@@ -320,6 +347,7 @@
 				C61DEB8E22514C37004BAADF /* Wind_2.png in Resources */,
 				C61DEB9A22514C37004BAADF /* Wind_15.png in Resources */,
 				C61DEB9022514C37004BAADF /* Explosion_6.png in Resources */,
+				66A391CF26BDA93D00DC0E85 /* Starfield8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,14 +513,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JLB6AGL526;
 				INFOPLIST_FILE = Intro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.developeracademyucb.Intro;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.GustavoBraghin.Intro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -504,14 +532,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JLB6AGL526;
 				INFOPLIST_FILE = Intro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.developeracademyucb.Intro;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.GustavoBraghin.Intro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
