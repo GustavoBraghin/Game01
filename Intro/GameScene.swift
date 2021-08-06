@@ -35,8 +35,9 @@ class GameScene: SKScene {
         
         self.generateEnemy(timePerEnemy: 1)
         // Não faz parte da nossa aula
-        self.startWorldEvents(with: view.frame.size)
+        //self.startWorldEvents(with: view.frame.size)
         //createBomb(position: CGPoint(x: size.width/2, y: size.height*0.8))
+        createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
     }
     
     /**
@@ -92,9 +93,10 @@ class GameScene: SKScene {
      */
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
-        
+        moveBackground()
         //this func removes the bombs that were not destroyed from scene
         removeEnemyNode()
+        
     }
     
     // MARK: Elements
@@ -104,24 +106,41 @@ class GameScene: SKScene {
      */
     func createBackground(with position: CGPoint) {
         
-        // Declaro minha constante de background. Um Sprite que vem do arquivo Background.png
-        let background = SKSpriteNode(imageNamed: "Starfield2.png")
+        for i in 0...3 {
+            // Declaro minha constante de background. Um Sprite que vem do arquivo Background.png
+            let background = SKSpriteNode(imageNamed: "Starfield2.png")
+            
+            background.name = "background"
+            // Insiro a Posição (X, Y) ao meu node.
+            background.position = position
+            background.position.y = position.y * CGFloat(i)
+            
+            background.size = CGSize(width: (self.scene?.size.width)!, height: (self.scene?.size.height)!)
+            
+            // A ZPosition (posição Z [profundidade]) é definida. Por ser um background, ele ficará atrás de tudo.
+            background.zPosition = -1
+            
+            // Altero diretamente a escala X e Y (largura e altura) do nosso background para 275% do tamanho original
+            background.setScale(2.0)
+            
+            // Retiro o Anti-Aliasing (redutor de serrilhado [por ser pixel art])
+            //background.texture?.filteringMode = .nearest
+            
+            // Adiciono meu sprite (background) como filho da cena, para ele ser renderizado.
+            self.addChild(background)
+        }
+    
+    }
         
-        // Insiro a Posição (X, Y) ao meu node.
-        background.position = position
-        
-        // A ZPosition (posição Z [profundidade]) é definida. Por ser um background, ele ficará atrás de tudo.
-        background.zPosition = -1
-        
-        // Altero diretamente a escala X e Y (largura e altura) do nosso background para 275% do tamanho original
-        background.setScale(2.0)
-        
-        // Retiro o Anti-Aliasing (redutor de serrilhado [por ser pixel art])
-        background.texture?.filteringMode = .nearest
-        
-        // Adiciono meu sprite (background) como filho da cena, para ele ser renderizado.
-        self.addChild(background)
-        
+    func moveBackground(){
+        self.enumerateChildNodes(withName: "background") { node, Error in
+            node.position.y -= 2
+
+            if node.position.y < -(self.scene?.size.height)!{
+                node.position.y += (self.scene?.size.height)! * 3
+            }
+
+        }
     }
     
     /**
