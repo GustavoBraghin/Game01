@@ -15,8 +15,6 @@ class GameScene: SKScene {
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
     
-    let wallLeftCategory:   UInt32 = 0x1 << 0 // 1
-    let wallRightCategory:  UInt32 = 0x1 << 1 // 2
     let enemyCategory:      UInt32 = 0x1 << 2 // 4
     
     // Nosso método init. Ele é o primeiro método a ser chamado sempre que nossa cena for iniciada!
@@ -29,7 +27,7 @@ class GameScene: SKScene {
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
         self.createScoreLabel(with: CGPoint(x: size.width*0.5, y: size.height*0.85))
-        self.createWallLeft()
+        self.createWalls()
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
@@ -150,7 +148,6 @@ class GameScene: SKScene {
         // Configuro a sprite para passar a receber interações de física.
         enemy.setupDefaultPhysicsBody()
         enemy.physicsBody?.categoryBitMask = enemyCategory
-        enemy.physicsBody?.contactTestBitMask = wallLeftCategory | wallRightCategory
         // Adiciono minha bomba à minha cena (ela vira filha da minha cena)
         self.addChild(enemy)
         
@@ -179,19 +176,21 @@ class GameScene: SKScene {
         self.addChild(scoreLabel)
     }
     
-    func createWallLeft(){
-
+    func createWalls(){
         let wallLeft = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
-        self.physicsBody = wallLeft
-        self.physicsBody?.friction = 0
-        wallLeft.contactTestBitMask = enemyCategory
-        wallLeft.categoryBitMask = wallLeftCategory
-        
         let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
-        self.physicsBody = wallRight
-        self.physicsBody?.friction = 0
-        wallRight.contactTestBitMask = enemyCategory
-        wallRight.categoryBitMask = wallRightCategory
+        
+        wallLeft.isDynamic = false
+        wallRight.isDynamic = false
+        
+        let leftWall = SKSpriteNode()
+        leftWall.physicsBody = wallLeft
+        
+        let rightWall = SKSpriteNode()
+        rightWall.physicsBody = wallRight
+        
+        self.addChild(leftWall)
+        self.addChild(rightWall)
     }
     
 //    func createWallRight(){
