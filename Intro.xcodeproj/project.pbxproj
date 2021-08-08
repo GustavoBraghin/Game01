@@ -16,6 +16,8 @@
 		66A391D826BDAABA00DC0E85 /* BlueNebula8.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D426BDAABA00DC0E85 /* BlueNebula8.png */; };
 		66A391D926BDAABA00DC0E85 /* BlueNebula1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D526BDAABA00DC0E85 /* BlueNebula1.png */; };
 		66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66A4778126BC5E2200C4652E /* spaceBackground.jpg */; };
+		66E8B0D626C0738C002716F8 /* Astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66E8B0D526C0738C002716F8 /* Astronaut.jpg */; };
+		66E8B0D826C076A6002716F8 /* Astronaut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66E8B0D726C076A6002716F8 /* Astronaut1.png */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
 		C61DEB4822514B09004BAADF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4722514B09004BAADF /* GameScene.swift */; };
 		C61DEB4A22514B09004BAADF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4922514B09004BAADF /* GameViewController.swift */; };
@@ -71,6 +73,8 @@
 		66A391D426BDAABA00DC0E85 /* BlueNebula8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula8.png; sourceTree = "<group>"; };
 		66A391D526BDAABA00DC0E85 /* BlueNebula1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula1.png; sourceTree = "<group>"; };
 		66A4778126BC5E2200C4652E /* spaceBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceBackground.jpg; sourceTree = "<group>"; };
+		66E8B0D526C0738C002716F8 /* Astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Astronaut.jpg; sourceTree = "<group>"; };
+		66E8B0D726C076A6002716F8 /* Astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Astronaut1.png; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* Intro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61DEB4122514B09004BAADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C61DEB4722514B09004BAADF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		C67BF9242253A2C100DA60B3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				66E8B0D526C0738C002716F8 /* Astronaut.jpg */,
+				66E8B0D726C076A6002716F8 /* Astronaut1.png */,
 				C61DEB7922514C36004BAADF /* Background.png */,
 				66A4778126BC5E2200C4652E /* spaceBackground.jpg */,
 				C61DEB6222514C34004BAADF /* Bomb_1.png */,
@@ -309,6 +315,7 @@
 				C61DEB8722514C37004BAADF /* Wind_10.png in Resources */,
 				C61DEB8C22514C37004BAADF /* Wind_14.png in Resources */,
 				C61DEB9722514C37004BAADF /* Wind_7.png in Resources */,
+				66E8B0D826C076A6002716F8 /* Astronaut1.png in Resources */,
 				C61DEB8F22514C37004BAADF /* Wind_5.png in Resources */,
 				C61DEB8422514C37004BAADF /* Explosion_7.png in Resources */,
 				C61DEB8522514C37004BAADF /* Explosion_3.png in Resources */,
@@ -348,6 +355,7 @@
 				C61DEB9A22514C37004BAADF /* Wind_15.png in Resources */,
 				C61DEB9022514C37004BAADF /* Explosion_6.png in Resources */,
 				66A391CF26BDA93D00DC0E85 /* Starfield8.png in Resources */,
+				66E8B0D626C0738C002716F8 /* Astronaut.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@ class GameScene: SKScene {
     
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
+    var player = SKSpriteNode()
     
     let enemyCategory:      UInt32 = 0x1 << 2 // 4
     
@@ -24,6 +25,7 @@ class GameScene: SKScene {
         super.init(size: size)
         
         // Métodos para preparação do projeto inicial
+        self.createPlayer()
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
         self.createScoreLabel(with: CGPoint(x: size.width*0.5, y: size.height*0.85))
@@ -177,7 +179,7 @@ class GameScene: SKScene {
     //func to remove bomb from scene if it wasn`t destroyed
     func removeEnemyNode(){
         if let enemy = childNode(withName: "enemy"){
-            if enemy.intersects(self) == false {
+            if enemy.intersects(self) == false || enemy.intersects(player){
                 enemy.removeFromParent()
             }
         }
@@ -210,6 +212,17 @@ class GameScene: SKScene {
         
         self.addChild(leftWall)
         self.addChild(rightWall)
+    }
+    
+    func createPlayer(){
+        
+        self.player = SKSpriteNode(imageNamed: "Astronaut1")
+        self.player.position = CGPoint(x: (self.scene?.size.width)!/2, y: (self.scene?.size.height)!*0.15)
+        self.player.setScale(0.12)
+        self.player.setupDefaultPhysicsBody()
+        self.player.physicsBody?.isDynamic = false
+        
+        self.addChild(player)
     }
     
 //    func createWallRight(){
