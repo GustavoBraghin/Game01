@@ -73,7 +73,20 @@ class GameScene: SKScene {
      Método chamado assim que o movimento de um toque é detectado na tela. O "meio" do toque.
      */
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first                                               //gets the first tuch position
+        //let previousPos = CGPoint(x: player.position.x, y: player.position.y)   //previous position of the player used to calculate the angle of rotation.
         
+        guard let touchLocation =  touch?.location(in: self) else { return }    //checks to stop nil values
+        
+        let location = CGPoint(x: touchLocation.x, y: touchLocation.y)              //sets the location to change only in x axis
+        
+        let move = SKAction.move(to: location,  duration: 0.5)                  //action to move the player
+        
+        //let rotationAction = player.calculateAngle(playerPos: location.x, previousPlayerPos: previousPos)  //action to rotate the player accordingly to the direction
+        
+        //let group = SKAction.group([move, rotationAction])                      //creates a group of action since they start at the same time
+        
+        player.run(move)
     }
     
     /**
@@ -215,13 +228,13 @@ class GameScene: SKScene {
     }
     
     func createPlayer(){
-        
+
         self.player = SKSpriteNode(imageNamed: "Astronaut1")
         self.player.position = CGPoint(x: (self.scene?.size.width)!/2, y: (self.scene?.size.height)!*0.15)
         self.player.setScale(0.12)
         self.player.setupDefaultPhysicsBody()
         self.player.physicsBody?.isDynamic = false
-        
+
         self.addChild(player)
     }
     

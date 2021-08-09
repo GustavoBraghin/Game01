@@ -152,7 +152,6 @@
 		C61DEB4022514B09004BAADF /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				C61DEB4722514B09004BAADF /* GameScene.swift */,
 				C61DEB5A22514C29004BAADF /* Resources */,
 				C61DEB5922514B86004BAADF /* Core */,
 				C61DEB4E22514B0A004BAADF /* Assets.xcassets */,
@@ -166,6 +165,7 @@
 			children = (
 				C61DEB9D22514FF0004BAADF /* Engine */,
 				C61DEB4122514B09004BAADF /* AppDelegate.swift */,
+				C61DEB4722514B09004BAADF /* GameScene.swift */,
 				C61DEB4922514B09004BAADF /* GameViewController.swift */,
 				C61DEB4B22514B09004BAADF /* Main.storyboard */,
 				C61DEB5022514B0A004BAADF /* LaunchScreen.storyboard */,
