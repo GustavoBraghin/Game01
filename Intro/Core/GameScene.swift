@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var player: Player
     var enemyController: EnemyController
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
+    let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
     
     // First method called when scene is initialized
@@ -28,8 +29,9 @@ class GameScene: SKScene {
         // Methods for preparation of scene
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
-        self.createScoreLabel(with: CGPoint(x: size.width*0.5, y: size.height*0.85))
+        self.createScoreLabel(with: CGPoint(x: size.width*0.50, y: size.height*0.85))
         self.createWalls()
+        self.createLifeLabel(with: CGPoint(x: size.width*0.20, y: size.height*0.86))
         
         //add contents in scene
         self.addChild(player)
@@ -118,6 +120,8 @@ class GameScene: SKScene {
         moveBackground()
         //this func removes the bombs that were not destroyed from scene
         removeEnemyNode()
+        
+        updateLifeLabel()
     }
     
     // MARK: Elements
@@ -198,11 +202,39 @@ class GameScene: SKScene {
         self.addChild(scoreLabel)
     }
     
+    //func to create the score label
+    func createLifeLabel(with position: CGPoint){
+        
+        lifeLabel.text = "SZ SZ SZ"
+        lifeLabel.fontSize = 25
+        lifeLabel.fontColor = .white
+        lifeLabel.position = position
+        lifeLabel.zPosition = 10
+        
+        self.addChild(lifeLabel)
+    }
+    
+    func updateLifeLabel(){
+        
+        if player.countLife == 3 {
+            lifeLabel.text = "SZ SZ SZ"
+        }else if player.countLife == 2{
+            lifeLabel.text = "SZ SZ"
+        }else if player.countLife == 1{
+            lifeLabel.text = "SZ"
+        }else{
+            lifeLabel.text = "Lose"
+        }
+    }
+    
     //func to remove bomb from scene if it wasn`t destroyed
     func removeEnemyNode(){
         if let enemy = childNode(withName: "enemy"){
             if enemy.intersects(self) == false || enemy.intersects(player){
                 enemy.removeFromParent()
+            }
+            if enemy.intersects(player){
+                player.countLife -= 1
             }
         }
     }

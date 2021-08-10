@@ -10,7 +10,7 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
-    private var countLife: Int
+    var countLife: Int
     
     init(spriteName: String, position: CGPoint) {
         let playerSize = SKTexture(imageNamed: spriteName)
