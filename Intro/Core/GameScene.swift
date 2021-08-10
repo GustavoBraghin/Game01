@@ -12,24 +12,27 @@ import SpriteKit
 // Declaração da minha classe GameScene, que herda de SKScene
 class GameScene: SKScene {
     
+    var player: Player
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
-    var player = SKSpriteNode()
     
     let enemyCategory:      UInt32 = 0x1 << 2 // 4
     
-    // Nosso método init. Ele é o primeiro método a ser chamado sempre que nossa cena for iniciada!
+    // First method called when scene is initialized
     override init(size: CGSize) {
+        self.player = Player(spriteName: "Astronaut1", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
         self.score = 0
         
         super.init(size: size)
         
-        // Métodos para preparação do projeto inicial
-        self.createPlayer()
+        // Methods for preparation of scene
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
         self.createScoreLabel(with: CGPoint(x: size.width*0.5, y: size.height*0.85))
         self.createWalls()
+        
+        //add contents in scene
+        self.addChild(player)
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
@@ -39,7 +42,7 @@ class GameScene: SKScene {
         // Não faz parte da nossa aula
         //self.startWorldEvents(with: view.frame.size)
         //createBomb(position: CGPoint(x: size.width/2, y: size.height*0.8))
-        createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
+        //createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
     }
     
     /**
@@ -48,24 +51,14 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Recupero a referência para o toque
-        let touch = touches.first
+        //let touch = touches.first
         
         // Recupero a posição do toque com referência à minha scene. À minha tela.
-        guard let touchLocation = touch?.location(in: self) else { return }
+        //guard let touchLocation = touch?.location(in: self) else { return }
         
         // Procuro saber se existe um node na posição do toque.
-        guard let node = self.nodes(at: touchLocation).first else { return }
+        //guard let node = self.nodes(at: touchLocation).first else { return }
         
-        //if touches the bomb, removes it from the scene and run explosion animation
-        if node.name == "enemy" {
-            node.removeFromParent()
-            
-            //udates score and scoreLabel
-            self.score += 1
-            self.scoreLabel.text = "\(score)"
-            
-            self.createExplosion(position: touchLocation)
-        }
         
     }
     
@@ -111,7 +104,6 @@ class GameScene: SKScene {
         moveBackground()
         //this func removes the bombs that were not destroyed from scene
         removeEnemyNode()
-        
     }
     
     // MARK: Elements
@@ -227,32 +219,6 @@ class GameScene: SKScene {
         self.addChild(rightWall)
     }
     
-    func createPlayer(){
-
-        self.player = SKSpriteNode(imageNamed: "Astronaut1")
-        self.player.position = CGPoint(x: (self.scene?.size.width)!/2, y: (self.scene?.size.height)!*0.15)
-        self.player.setScale(0.12)
-        self.player.setupDefaultPhysicsBody()
-        self.player.physicsBody?.isDynamic = false
-
-        self.addChild(player)
-    }
-    
-//    func createWallRight(){
-//
-////        let wall = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
-////        self.physicsBody = wallLeft
-////        self.physicsBody?.friction = 0
-////        wallLeft.contactTestBitMask = enemyCategory
-////        wallLeft.categoryBitMask = wallLeftCategory
-//
-//        let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
-//        self.physicsBody = wallRight
-//        self.physicsBody?.friction = 0
-//        wallRight.contactTestBitMask = enemyCategory
-//        wallRight.categoryBitMask = wallRightCategory
-//    }
-    
     
     
     
@@ -292,28 +258,28 @@ class GameScene: SKScene {
     // MARK: Other. Não será utilizado em nossa aula.
     ************************************************/
     
-    private lazy var explosionTextures: [SKTexture] = {
-        return self.getExplosionTextures()
-    }()
-    /*
-    lazy var windTextures: [SKTexture] = {
-        return self.getWindTextures()
-    }()
-    */
-    lazy var explosionSoundAction: SKAction = {
-        return SKAction.playSoundFileNamed("explosion_sound.wav", waitForCompletion: false)
-    }()
+//    private lazy var explosionTextures: [SKTexture] = {
+//        return self.getExplosionTextures()
+//    }()
+//    /*
+//    lazy var windTextures: [SKTexture] = {
+//        return self.getWindTextures()
+//    }()
+//    */
+//    lazy var explosionSoundAction: SKAction = {
+//        return SKAction.playSoundFileNamed("explosion_sound.wav", waitForCompletion: false)
+//    }()
     
     func setPhysicsUp() {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -6.8)
     }
     
-    func startWorldEvents(with sceneSize: CGSize) {
-        // Crio uma explosão. Esse método não faz parte da aula.
-        self.createExplosion(position: CGPoint(x: sceneSize.width/2, y: sceneSize.height/2))
-        //self.startWind(range: sceneSize)
-    }
+//    func startWorldEvents(with sceneSize: CGSize) {
+//        // Crio uma explosão. Esse método não faz parte da aula.
+//        self.createExplosion(position: CGPoint(x: sceneSize.width/2, y: sceneSize.height/2))
+//        //self.startWind(range: sceneSize)
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

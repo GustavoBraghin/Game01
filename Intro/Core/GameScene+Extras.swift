@@ -10,40 +10,40 @@ import SpriteKit
 
 extension GameScene {
     
-    func animate(with textures: [SKTexture], timePerFrame: TimeInterval) -> SKAction {
-        
-        let animate = SKAction.animate(with: textures, timePerFrame: timePerFrame)
-        return animate
-        
-    }
+//    func animate(with textures: [SKTexture], timePerFrame: TimeInterval) -> SKAction {
+//        
+//        let animate = SKAction.animate(with: textures, timePerFrame: timePerFrame)
+//        return animate
+//        
+//    }
     
-    func getExplosionTextures() -> [SKTexture] {
-        var textures = [SKTexture]()
-        for i in 1...12 {
-            
-            let texture = SKTexture(imageNamed: "Explosion_\(i)")
-            texture.filteringMode = .nearest
-            textures.append(texture)
-            
-        }
-        
-        return textures
-    }
+//    func getExplosionTextures() -> [SKTexture] {
+//        var textures = [SKTexture]()
+//        for i in 1...12 {
+//            
+//            let texture = SKTexture(imageNamed: "Explosion_\(i)")
+//            texture.filteringMode = .nearest
+//            textures.append(texture)
+//            
+//        }
+//        
+//        return textures
+//    }
     
-    func createExplosion(position: CGPoint) {
-        let explosion = SKSpriteNode(imageNamed: "Explosion_1")
-        explosion.position = position
-        explosion.setScale(0.5)
-        self.addChild(explosion)
-        
-        let animateAction = animate(with: getExplosionTextures(), timePerFrame: 0.075)
-        let removeAfter = SKAction.removeFromParent()
-        
-        let sequence = SKAction.sequence([animateAction, removeAfter])
-        
-        explosion.run(sequence)
-        explosion.run(self.explosionSoundAction)
-    }
+//    func createExplosion(position: CGPoint) {
+//        let explosion = SKSpriteNode(imageNamed: "Explosion_1")
+//        explosion.position = position
+//        explosion.setScale(0.5)
+//        self.addChild(explosion)
+//        
+//        let animateAction = animate(with: getExplosionTextures(), timePerFrame: 0.075)
+//        let removeAfter = SKAction.removeFromParent()
+//        
+//        let sequence = SKAction.sequence([animateAction, removeAfter])
+//        
+//        explosion.run(sequence)
+//        explosion.run(self.explosionSoundAction)
+//    }
     
     /**
      Método que aplica impulso a um node usando Actions!
