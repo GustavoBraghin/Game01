@@ -28,7 +28,9 @@ class Player: SKSpriteNode {
     func createPlayer(position: CGPoint){
 
         //self.player = SKSpriteNode(imageNamed: "Astronaut1")
+        self.name = "player"
         self.position = position
+        self.zPosition = 1
         self.setScale(0.12)
         self.setupDefaultPhysicsBody()
         self.physicsBody?.isDynamic = false
