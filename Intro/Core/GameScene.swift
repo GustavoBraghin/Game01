@@ -39,6 +39,8 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         //enemyController.generateEnemy(timePerEnemy: 1, width: self.size.width, height: self.size.height, "green")
+        
+        //GENERATION OF ENEMIES
         let createEnemy = SKAction.run {
             let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
             let yPosition = CGFloat(self.size.height*1)
@@ -55,10 +57,6 @@ class GameScene: SKScene {
         let repeatForever = SKAction.repeatForever(sequence)
         
         self.run(repeatForever)
-        // Não faz parte da nossa aula
-        //self.startWorldEvents(with: view.frame.size)
-        //createBomb(position: CGPoint(x: size.width/2, y: size.height*0.8))
-        //createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
     }
     
     /**
@@ -124,6 +122,11 @@ class GameScene: SKScene {
     
     // MARK: Elements
     
+    
+    
+    
+    
+    
     /**
      Cria o sprite de background e o insere diretamente na nossa scene. Ele recebe um parâmetro de posição (X e Y).
      */
@@ -166,6 +169,44 @@ class GameScene: SKScene {
         }
     }
     
+    func createWalls(){
+        let wallLeft = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
+        let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
+        
+        wallLeft.isDynamic = false
+        wallRight.isDynamic = false
+        
+        let leftWall = SKSpriteNode()
+        leftWall.physicsBody = wallLeft
+        
+        let rightWall = SKSpriteNode()
+        rightWall.physicsBody = wallRight
+        
+        self.addChild(leftWall)
+        self.addChild(rightWall)
+    }
+    
+    //func to create the score label
+    func createScoreLabel(with position: CGPoint){
+        
+        scoreLabel.text = "\(score)"
+        scoreLabel.fontSize = 50
+        scoreLabel.fontColor = .white
+        scoreLabel.position = position
+        scoreLabel.zPosition = 10
+        
+        self.addChild(scoreLabel)
+    }
+    
+    //func to remove bomb from scene if it wasn`t destroyed
+    func removeEnemyNode(){
+        if let enemy = childNode(withName: "enemy"){
+            if enemy.intersects(self) == false || enemy.intersects(player){
+                enemy.removeFromParent()
+            }
+        }
+    }
+    
     /**
      Nosso método criador de uma bomba. Ele recebe como parâmetro uma posição (CGPoint).
      */
@@ -197,43 +238,11 @@ class GameScene: SKScene {
 //        self.applyImpulseTo(node: enemy)
 //    }
     
-    //func to remove bomb from scene if it wasn`t destroyed
-    func removeEnemyNode(){
-        if let enemy = childNode(withName: "enemy"){
-            if enemy.intersects(self) == false || enemy.intersects(player){
-                enemy.removeFromParent()
-            }
-        }
-    }
     
-    //func to create the score label
-    func createScoreLabel(with position: CGPoint){
-        
-        scoreLabel.text = "\(score)"
-        scoreLabel.fontSize = 50
-        scoreLabel.fontColor = .white
-        scoreLabel.position = position
-        scoreLabel.zPosition = 10
-        
-        self.addChild(scoreLabel)
-    }
     
-    func createWalls(){
-        let wallLeft = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
-        let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
-        
-        wallLeft.isDynamic = false
-        wallRight.isDynamic = false
-        
-        let leftWall = SKSpriteNode()
-        leftWall.physicsBody = wallLeft
-        
-        let rightWall = SKSpriteNode()
-        rightWall.physicsBody = wallRight
-        
-        self.addChild(leftWall)
-        self.addChild(rightWall)
-    }
+    
+    
+    
     
     
     

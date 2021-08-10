@@ -8,12 +8,12 @@
 
 import SpriteKit
 
-class EnemyController: SKNode {
+class EnemyController {
     
     let enemyCategory:      UInt32 = 0x1 << 2 // 4
     
-    override init() {
-        super.init()
+    init() {
+    
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,8 +45,24 @@ class EnemyController: SKNode {
     }
     
 //    func generateEnemy(timePerEnemy: TimeInterval, width: CGFloat, height: CGFloat, spriteName: String){
-//        
-//        
+//        //enemyController.generateEnemy(timePerEnemy: 1, width: self.size.width, height: self.size.height, "green")
+//    let createEnemy = SKAction.run {
+//        let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
+//        let yPosition = CGFloat(self.size.height*1)
+//        //print to discover the value of y point on scene
+//        //print((self.scene?.size.height)!)
+//        let enemy = self.enemyController.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
+//        self.addChild(enemy)
+//    }
+//
+//    let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.5)))
+//
+//    let sequence = SKAction.sequence([createEnemy, waitInBetween])
+//
+//    let repeatForever = SKAction.repeatForever(sequence)
+//
+//    self.run(repeatForever)
+//
 //    }
     
     func applyImpulseTo(node: SKNode) {
