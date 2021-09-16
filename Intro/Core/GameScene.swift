@@ -29,9 +29,9 @@ class GameScene: SKScene {
         // Methods for preparation of scene
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
-        self.createScoreLabel(with: CGPoint(x: size.width*0.50, y: size.height*0.85))
+        self.createScoreLabel(with: CGPoint(x: size.width*0.50, y: size.height*0.88))
         self.createWalls()
-        self.createLifeLabel(with: CGPoint(x: size.width*0.20, y: size.height*0.86))
+        self.createLifeLabel(with: CGPoint(x: size.width*0.20, y: size.height*0.89))
         
         //add contents in scene
         self.addChild(player)
@@ -205,7 +205,7 @@ class GameScene: SKScene {
     //func to create the score label
     func createLifeLabel(with position: CGPoint){
         
-        lifeLabel.text = "SZ SZ SZ"
+        lifeLabel.text = "❤️ ♥️ ♥️"
         lifeLabel.fontSize = 25
         lifeLabel.fontColor = .white
         lifeLabel.position = position
@@ -217,11 +217,11 @@ class GameScene: SKScene {
     func updateLifeLabel(){
         
         if player.countLife == 3 {
-            lifeLabel.text = "SZ SZ SZ"
+            lifeLabel.text = "❤️ ♥️ ♥️"
         }else if player.countLife == 2{
-            lifeLabel.text = "SZ SZ"
+            lifeLabel.text = "❤️ ♥️"
         }else if player.countLife == 1{
-            lifeLabel.text = "SZ"
+            lifeLabel.text = "❤️"
         }else{
             lifeLabel.text = "Lose"
         }
