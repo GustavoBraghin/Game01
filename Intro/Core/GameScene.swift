@@ -13,7 +13,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     var player: Player
-    var enemyController: EnemyController
+    var enemy: Enemy
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
@@ -21,7 +21,7 @@ class GameScene: SKScene {
     // First method called when scene is initialized
     override init(size: CGSize) {
         self.player = Player(spriteName: "Astronaut1", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
-        self.enemyController = EnemyController()
+        self.enemy = Enemy()
         self.score = 0
         
         super.init(size: size)
@@ -48,7 +48,7 @@ class GameScene: SKScene {
             let yPosition = CGFloat(self.size.height*1)
             //print to discover the value of y point on scene
             //print((self.scene?.size.height)!)
-            let enemy = self.enemyController.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
+            let enemy = self.enemy.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
             self.addChild(enemy)
         }
         
@@ -227,12 +227,22 @@ class GameScene: SKScene {
         }
     }
     
+    func updateScoreLabel(){
+        
+        self.scoreLabel.text = ("\(score)")
+    }
+    
     //func to remove bomb from scene if it wasn`t destroyed
     func removeEnemyNode(){
         if let enemy = childNode(withName: "enemy"){
             if enemy.intersects(self) == false || enemy.intersects(player){
                 enemy.removeFromParent()
             }
+            if enemy.intersects(self) == false {
+                self.score += 1
+                updateScoreLabel()
+            }
+            
             if enemy.intersects(player){
                 player.countLife -= 1
             }

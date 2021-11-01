@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class EnemyController {
+class Enemy {
     
     let enemyCategory:      UInt32 = 0x1 << 2 // 4
     
