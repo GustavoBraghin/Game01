@@ -118,18 +118,11 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
         moveBackground()
-        //this func removes the bombs that were not destroyed from scene
+
         removeEnemyNode()
         
         updateLifeLabel()
     }
-    
-    // MARK: Elements
-    
-    
-    
-    
-    
     
     /**
      Cria o sprite de background e o insere diretamente na nossa scene. Ele recebe um parâmetro de posição (X e Y).
@@ -190,7 +183,6 @@ class GameScene: SKScene {
         self.addChild(rightWall)
     }
     
-    //func to create the score label
     func createScoreLabel(with position: CGPoint){
         
         scoreLabel.text = "\(score)"
@@ -202,9 +194,7 @@ class GameScene: SKScene {
         self.addChild(scoreLabel)
     }
     
-    //func to create the score label
     func createLifeLabel(with position: CGPoint){
-        
         lifeLabel.text = "♥️ ♥️ ♥️"
         lifeLabel.fontSize = 25
         lifeLabel.fontColor = .white
@@ -228,11 +218,9 @@ class GameScene: SKScene {
     }
     
     func updateScoreLabel(){
-        
         self.scoreLabel.text = ("\(score)")
     }
     
-    //func to remove bomb from scene if it wasn`t destroyed
     func removeEnemyNode(){
         if let enemy = childNode(withName: "enemy"){
             if enemy.intersects(self) == false || enemy.intersects(player){
