@@ -205,7 +205,7 @@ class GameScene: SKScene {
     //func to create the score label
     func createLifeLabel(with position: CGPoint){
         
-        lifeLabel.text = "❤️ ♥️ ♥️"
+        lifeLabel.text = "♥️ ♥️ ♥️"
         lifeLabel.fontSize = 25
         lifeLabel.fontColor = .white
         lifeLabel.position = position
@@ -217,11 +217,11 @@ class GameScene: SKScene {
     func updateLifeLabel(){
         
         if player.countLife == 3 {
-            lifeLabel.text = "❤️ ♥️ ♥️"
+            lifeLabel.text = "♥️ ♥️ ♥️"
         }else if player.countLife == 2{
-            lifeLabel.text = "❤️ ♥️"
+            lifeLabel.text = "♥️ ♥️"
         }else if player.countLife == 1{
-            lifeLabel.text = "❤️"
+            lifeLabel.text = "♥️"
         }else{
             lifeLabel.text = "Lose"
         }
