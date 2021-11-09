@@ -12,34 +12,53 @@ import SpriteKit
 // Declaração da minha classe GameScene, que herda de SKScene
 class GameScene: SKScene {
     
+    var player: Player
+    var enemy: Enemy
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
+    let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
-    var player = SKSpriteNode()
     
-    let enemyCategory:      UInt32 = 0x1 << 2 // 4
-    
-    // Nosso método init. Ele é o primeiro método a ser chamado sempre que nossa cena for iniciada!
+    // First method called when scene is initialized
     override init(size: CGSize) {
+        self.player = Player(spriteName: "Astronaut1", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
+        self.enemy = Enemy()
         self.score = 0
         
         super.init(size: size)
         
-        // Métodos para preparação do projeto inicial
-        self.createPlayer()
+        // Methods for preparation of scene
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
-        self.createScoreLabel(with: CGPoint(x: size.width*0.5, y: size.height*0.85))
+        self.createScoreLabel(with: CGPoint(x: size.width*0.50, y: size.height*0.88))
         self.createWalls()
+        self.createLifeLabel(with: CGPoint(x: size.width*0.20, y: size.height*0.89))
+        
+        //add contents in scene
+        self.addChild(player)
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
         
-        self.generateEnemy(timePerEnemy: 1)
-        // Não faz parte da nossa aula
-        //self.startWorldEvents(with: view.frame.size)
-        //createBomb(position: CGPoint(x: size.width/2, y: size.height*0.8))
-        createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
+        //enemyController.generateEnemy(timePerEnemy: 1, width: self.size.width, height: self.size.height, "green")
+        
+        //GENERATION OF ENEMIES
+        let createEnemy = SKAction.run {
+            let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
+            let yPosition = CGFloat(self.size.height*1)
+            //print to discover the value of y point on scene
+            //print((self.scene?.size.height)!)
+            let enemy = self.enemy.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
+            self.addChild(enemy)
+        }
+        
+        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.5)))
+        
+        let sequence = SKAction.sequence([createEnemy, waitInBetween])
+        
+        let repeatForever = SKAction.repeatForever(sequence)
+        
+        self.run(repeatForever)
     }
     
     /**
@@ -48,24 +67,14 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Recupero a referência para o toque
-        let touch = touches.first
+        //let touch = touches.first
         
         // Recupero a posição do toque com referência à minha scene. À minha tela.
-        guard let touchLocation = touch?.location(in: self) else { return }
+        //guard let touchLocation = touch?.location(in: self) else { return }
         
         // Procuro saber se existe um node na posição do toque.
-        guard let node = self.nodes(at: touchLocation).first else { return }
+        //guard let node = self.nodes(at: touchLocation).first else { return }
         
-        //if touches the bomb, removes it from the scene and run explosion animation
-        if node.name == "enemy" {
-            node.removeFromParent()
-            
-            //udates score and scoreLabel
-            self.score += 1
-            self.scoreLabel.text = "\(score)"
-            
-            self.createExplosion(position: touchLocation)
-        }
         
     }
     
@@ -109,12 +118,11 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
         moveBackground()
-        //this func removes the bombs that were not destroyed from scene
+
         removeEnemyNode()
         
+        updateLifeLabel()
     }
-    
-    // MARK: Elements
     
     /**
      Cria o sprite de background e o insere diretamente na nossa scene. Ele recebe um parâmetro de posição (X e Y).
@@ -158,58 +166,6 @@ class GameScene: SKScene {
         }
     }
     
-    /**
-     Nosso método criador de uma bomba. Ele recebe como parâmetro uma posição (CGPoint).
-     */
-    func createEnemy(position: CGPoint) {
-        
-        // Crio um novo node do tipo Sprite, com base na imagem Bomb_1.png 💣
-        let enemy = SKSpriteNode(imageNamed: "green.png")
-        
-        // Defino o tamanho do meu sprite como 75% do tamanho original
-        enemy.setScale(0.22)
-        
-        // Insiro a Posição (X, Y) ao meu node.
-        //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)
-        enemy.position = position
-        
-        // Defino um nome para minha bomba dentro da cena para fácil acesso posteriormente
-        enemy.name = "enemy"
-        
-        // A ZPosition (posição Z [profundidade]) é definida. Por ser uma bomba, ele ficará na frente do background.
-        enemy.zPosition = 1
-        
-        // Configuro a sprite para passar a receber interações de física.
-        enemy.setupDefaultPhysicsBody()
-        enemy.physicsBody?.categoryBitMask = enemyCategory
-        // Adiciono minha bomba à minha cena (ela vira filha da minha cena)
-        self.addChild(enemy)
-        
-        // Aplico uma ação de impulso para minha bomba (usando nosso sistema de física 😎)
-        self.applyImpulseTo(node: enemy)
-    }
-    
-    //func to remove bomb from scene if it wasn`t destroyed
-    func removeEnemyNode(){
-        if let enemy = childNode(withName: "enemy"){
-            if enemy.intersects(self) == false || enemy.intersects(player){
-                enemy.removeFromParent()
-            }
-        }
-    }
-    
-    //func to create the score label
-    func createScoreLabel(with position: CGPoint){
-        
-        scoreLabel.text = "\(score)"
-        scoreLabel.fontSize = 50
-        scoreLabel.fontColor = .white
-        scoreLabel.position = position
-        scoreLabel.zPosition = 10
-        
-        self.addChild(scoreLabel)
-    }
-    
     func createWalls(){
         let wallLeft = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
         let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
@@ -227,31 +183,96 @@ class GameScene: SKScene {
         self.addChild(rightWall)
     }
     
-    func createPlayer(){
-
-        self.player = SKSpriteNode(imageNamed: "Astronaut1")
-        self.player.position = CGPoint(x: (self.scene?.size.width)!/2, y: (self.scene?.size.height)!*0.15)
-        self.player.setScale(0.12)
-        self.player.setupDefaultPhysicsBody()
-        self.player.physicsBody?.isDynamic = false
-
-        self.addChild(player)
+    func createScoreLabel(with position: CGPoint){
+        
+        scoreLabel.text = "\(score)"
+        scoreLabel.fontSize = 50
+        scoreLabel.fontColor = .white
+        scoreLabel.position = position
+        scoreLabel.zPosition = 10
+        
+        self.addChild(scoreLabel)
     }
     
-//    func createWallRight(){
+    func createLifeLabel(with position: CGPoint){
+        lifeLabel.text = "♥️ ♥️ ♥️"
+        lifeLabel.fontSize = 25
+        lifeLabel.fontColor = .white
+        lifeLabel.position = position
+        lifeLabel.zPosition = 10
+        
+        self.addChild(lifeLabel)
+    }
+    
+    func updateLifeLabel(){
+        
+        if player.countLife == 3 {
+            lifeLabel.text = "♥️ ♥️ ♥️"
+        }else if player.countLife == 2{
+            lifeLabel.text = "♥️ ♥️"
+        }else if player.countLife == 1{
+            lifeLabel.text = "♥️"
+        }else{
+            lifeLabel.text = "Lose"
+        }
+    }
+    
+    func updateScoreLabel(){
+        self.scoreLabel.text = ("\(score)")
+    }
+    
+    func removeEnemyNode(){
+        if let enemy = childNode(withName: "enemy"){
+            if enemy.intersects(self) == false || enemy.intersects(player){
+                enemy.removeFromParent()
+            }
+            if enemy.intersects(self) == false {
+                self.score += 1
+                updateScoreLabel()
+            }
+            
+            if enemy.intersects(player){
+                player.countLife -= 1
+            }
+        }
+    }
+    
+    /**
+     Nosso método criador de uma bomba. Ele recebe como parâmetro uma posição (CGPoint).
+     */
+//    func createEnemy(position: CGPoint) {
+//        
+//        // Crio um novo node do tipo Sprite, com base na imagem Bomb_1.png 💣
+//        let enemy = SKSpriteNode(imageNamed: "green.png")
+//        
+//        // Defino o tamanho do meu sprite como 75% do tamanho original
+//        enemy.setScale(0.22)
+//        
+//        // Insiro a Posição (X, Y) ao meu node.
+//        //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)
+//        enemy.position = position
+//        
+//        // Defino um nome para minha bomba dentro da cena para fácil acesso posteriormente
+//        enemy.name = "enemy"
+//        
+//        // A ZPosition (posição Z [profundidade]) é definida. Por ser uma bomba, ele ficará na frente do background.
+//        enemy.zPosition = 1
+//        
+//        // Configuro a sprite para passar a receber interações de física.
+//        enemy.setupDefaultPhysicsBody()
+//        //enemy.physicsBody?.categoryBitMask = enemyCategory
+//        // Adiciono minha bomba à minha cena (ela vira filha da minha cena)
+//        self.addChild(enemy)
 //
-////        let wall = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
-////        self.physicsBody = wallLeft
-////        self.physicsBody?.friction = 0
-////        wallLeft.contactTestBitMask = enemyCategory
-////        wallLeft.categoryBitMask = wallLeftCategory
-//
-//        let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
-//        self.physicsBody = wallRight
-//        self.physicsBody?.friction = 0
-//        wallRight.contactTestBitMask = enemyCategory
-//        wallRight.categoryBitMask = wallRightCategory
+//        // Aplico uma ação de impulso para minha bomba (usando nosso sistema de física 😎)
+//        self.applyImpulseTo(node: enemy)
 //    }
+    
+    
+    
+    
+    
+    
     
     
     
@@ -292,28 +313,28 @@ class GameScene: SKScene {
     // MARK: Other. Não será utilizado em nossa aula.
     ************************************************/
     
-    private lazy var explosionTextures: [SKTexture] = {
-        return self.getExplosionTextures()
-    }()
-    /*
-    lazy var windTextures: [SKTexture] = {
-        return self.getWindTextures()
-    }()
-    */
-    lazy var explosionSoundAction: SKAction = {
-        return SKAction.playSoundFileNamed("explosion_sound.wav", waitForCompletion: false)
-    }()
+//    private lazy var explosionTextures: [SKTexture] = {
+//        return self.getExplosionTextures()
+//    }()
+//    /*
+//    lazy var windTextures: [SKTexture] = {
+//        return self.getWindTextures()
+//    }()
+//    */
+//    lazy var explosionSoundAction: SKAction = {
+//        return SKAction.playSoundFileNamed("explosion_sound.wav", waitForCompletion: false)
+//    }()
     
     func setPhysicsUp() {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -6.8)
     }
     
-    func startWorldEvents(with sceneSize: CGSize) {
-        // Crio uma explosão. Esse método não faz parte da aula.
-        self.createExplosion(position: CGPoint(x: sceneSize.width/2, y: sceneSize.height/2))
-        //self.startWind(range: sceneSize)
-    }
+//    func startWorldEvents(with sceneSize: CGSize) {
+//        // Crio uma explosão. Esse método não faz parte da aula.
+//        self.createExplosion(position: CGPoint(x: sceneSize.width/2, y: sceneSize.height/2))
+//        //self.startWind(range: sceneSize)
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
