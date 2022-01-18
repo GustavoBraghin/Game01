@@ -8,12 +8,12 @@
 
 import SpriteKit
 
-class Enemy {
+class Enemy: SKSpriteNode {
     
     let enemyCategory:      UInt32 = 0x1 << 2 // 4
     
     init() {
-    
+        super.init(texture: nil, color: .clear, size: CGSize(width: 1, height: 1)) //the size is not interfering in the real size
     }
     
     required init?(coder aDecoder: NSCoder) {

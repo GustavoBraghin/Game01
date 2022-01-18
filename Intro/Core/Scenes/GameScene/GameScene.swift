@@ -17,13 +17,16 @@ class GameScene: SKScene {
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
+    var gameOverNode: GameOverNode
+    var presentedGameOverNode: Bool
     
     // First method called when scene is initialized
     override init(size: CGSize) {
         self.player = Player(spriteName: "Astronaut1", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
         self.enemy = Enemy()
         self.score = 0
-        
+        self.gameOverNode = GameOverNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
+        self.presentedGameOverNode = false
         super.init(size: size)
         
         // Methods for preparation of scene
@@ -43,6 +46,7 @@ class GameScene: SKScene {
         //enemyController.generateEnemy(timePerEnemy: 1, width: self.size.width, height: self.size.height, "green")
         
         //GENERATION OF ENEMIES
+        
         let createEnemy = SKAction.run {
             let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
             let yPosition = CGFloat(self.size.height*1)
@@ -58,7 +62,7 @@ class GameScene: SKScene {
         
         let repeatForever = SKAction.repeatForever(sequence)
         
-        self.run(repeatForever)
+        self.run(repeatForever, withKey: "createEnemy")
     }
     
     /**
@@ -89,7 +93,7 @@ class GameScene: SKScene {
         
         let location = CGPoint(x: touchLocation.x, y: touchLocation.y)              //sets the location to change only in x axis
         
-        let move = SKAction.move(to: location,  duration: 0.5)                  //action to move the player
+        let move = SKAction.move(to: location,  duration: 0.15)                  //action to move the player
         
         //let rotationAction = player.calculateAngle(playerPos: location.x, previousPlayerPos: previousPos)  //action to rotate the player accordingly to the direction
         
@@ -102,7 +106,7 @@ class GameScene: SKScene {
      Método chamado assim que um toque deixa de existir na tela. O "fim" do toque.
      */
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+    
     }
     
     /**
@@ -117,11 +121,25 @@ class GameScene: SKScene {
      */
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
-        moveBackground()
-
         removeEnemyNode()
         
         updateLifeLabel()
+        
+        if(player.countLife == 0 && !presentedGameOverNode){
+            self.addChild(gameOverNode)
+            presentedGameOverNode.toggle()
+            player.isPaused = true
+            enemy.isPaused = true
+            
+            if let action = self.action(forKey: "createEnemy") {
+                action.speed = 0
+            }
+        }else if(player.countLife != 0){
+            moveBackground()
+            if let action = self.action(forKey: "createEnemy") {
+                    action.speed = 1
+            }
+        }
     }
     
     /**
@@ -133,7 +151,7 @@ class GameScene: SKScene {
             // Declaro minha constante de background. Um Sprite que vem do arquivo Background.png
             let background = SKSpriteNode(imageNamed: "Starfield2.png")
             
-            background.name = "background"
+            background.name = ("background")
             // Insiro a Posição (X, Y) ao meu node.
             background.position = position
             background.position.y = position.y * CGFloat(i)
@@ -223,15 +241,19 @@ class GameScene: SKScene {
     
     func removeEnemyNode(){
         if let enemy = childNode(withName: "enemy"){
-            if enemy.intersects(self) == false || enemy.intersects(player){
+            
+            if(player.countLife == 0){
                 enemy.removeFromParent()
             }
-            if enemy.intersects(self) == false {
+
+            if (enemy.intersects(self) == false) {
+                enemy.removeFromParent()
                 self.score += 1
                 updateScoreLabel()
             }
             
             if enemy.intersects(player){
+                enemy.removeFromParent()
                 player.countLife -= 1
             }
         }
