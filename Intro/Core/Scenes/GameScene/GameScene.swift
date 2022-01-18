@@ -46,14 +46,10 @@ class GameScene: SKScene {
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
         
-        //enemyController.generateEnemy(timePerEnemy: 1, width: self.size.width, height: self.size.height, "green")
-        
         //GENERATION OF ENEMIES
         let createEnemy = SKAction.run {
             let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
             let yPosition = CGFloat(self.size.height*1)
-            //print to discover the value of y point on scene
-            //print((self.scene?.size.height)!)
             let enemy = self.enemy.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
             self.addChild(enemy)
         }
@@ -83,7 +79,7 @@ class GameScene: SKScene {
         
         switch node.name {
             
-            //in case of player is dead anda want to play again (RESTART GAME)
+            //in case of player is dead and want to play again (RESTART GAME)
             case "playAgain" :
             gameOverNode.removeFromParent()
             player.countLife = 3
@@ -91,7 +87,7 @@ class GameScene: SKScene {
             updateScoreLabel()
             player.isPaused = false
             enemy.isPaused = false
-            presentedGameOverNode.toggle() // to false
+            presentedGameOverNode = false
             
         default:
             return
@@ -103,7 +99,6 @@ class GameScene: SKScene {
      */
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first                                               //gets the first tuch position
-        //let previousPos = CGPoint(x: player.position.x, y: player.position.y)   //previous position of the player used to calculate the angle of rotation.
         
         guard let touchLocation =  touch?.location(in: self) else { return }    //checks to stop nil values
         
@@ -111,9 +106,6 @@ class GameScene: SKScene {
         
         let move = SKAction.move(to: location,  duration: 0.15)                  //action to move the player
         
-        //let rotationAction = player.calculateAngle(playerPos: location.x, previousPlayerPos: previousPos)  //action to rotate the player accordingly to the direction
-        
-        //let group = SKAction.group([move, rotationAction])                      //creates a group of action since they start at the same time
         
         player.run(move)
     }
@@ -138,20 +130,21 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
         removeEnemyNode()
-        
         updateLifeLabel()
         
         if(player.countLife == 0 && !presentedGameOverNode){
             self.addChild(gameOverNode)
-            presentedGameOverNode.toggle() // to true
+            presentedGameOverNode = true
             player.isPaused = true
             enemy.isPaused = true
             
             if let action = self.action(forKey: "createEnemy") {
                 action.speed = 0
             }
+            
         }else if(player.countLife != 0){
             moveBackground()
+            
             if let action = self.action(forKey: "createEnemy") {
                     action.speed = 1
             }
@@ -188,7 +181,8 @@ class GameScene: SKScene {
         }
     
     }
-        
+     
+    //moves background
     func moveBackground(){
         self.enumerateChildNodes(withName: "background") { node, Error in
             node.position.y -= 2
@@ -200,6 +194,7 @@ class GameScene: SKScene {
         }
     }
     
+    //create wall that makes contact with player and enemies
     func createWalls(){
         let wallLeft = SKPhysicsBody(edgeFrom: CGPoint(x: 0, y: 0), to: CGPoint(x: 0, y: (self.scene?.size.height)!))
         let wallRight = SKPhysicsBody(edgeFrom: CGPoint(x: (self.scene?.size.width)!, y: 0), to: CGPoint(x: (self.scene?.size.width)!, y: (self.scene?.size.height)!))
@@ -217,8 +212,8 @@ class GameScene: SKScene {
         self.addChild(rightWall)
     }
     
+    //set scoreLabel patterns
     func createScoreLabel(with position: CGPoint){
-        
         scoreLabel.text = "\(score)"
         scoreLabel.fontSize = 50
         scoreLabel.fontColor = .white
@@ -228,6 +223,7 @@ class GameScene: SKScene {
         self.addChild(scoreLabel)
     }
     
+    //set lifeLabel patterns
     func createLifeLabel(with position: CGPoint){
         lifeLabel.text = "♥️ ♥️ ♥️"
         lifeLabel.fontSize = 25
@@ -238,6 +234,7 @@ class GameScene: SKScene {
         self.addChild(lifeLabel)
     }
     
+    //updates lifeLabel checking the countLife of player
     func updateLifeLabel(){
         
         if player.countLife == 3 {
@@ -251,11 +248,14 @@ class GameScene: SKScene {
         }
     }
     
+    //update scoreLabel
     func updateScoreLabel(){
         self.scoreLabel.text = ("\(score)")
     }
     
+    //remove an enemy that collides with player or goes out the scene or removes all enemies when player dies
     func removeEnemyNode(){
+        
         //if let enemy = childNode(withName: "enemy"){
         self.enumerateChildNodes(withName: "enemy") { node, Error in
             
@@ -275,38 +275,6 @@ class GameScene: SKScene {
             }
         }
     }
-    
-    /**
-     Nosso método criador de uma bomba. Ele recebe como parâmetro uma posição (CGPoint).
-     */
-//    func createEnemy(position: CGPoint) {
-//        
-//        // Crio um novo node do tipo Sprite, com base na imagem Bomb_1.png 💣
-//        let enemy = SKSpriteNode(imageNamed: "green.png")
-//        
-//        // Defino o tamanho do meu sprite como 75% do tamanho original
-//        enemy.setScale(0.22)
-//        
-//        // Insiro a Posição (X, Y) ao meu node.
-//        //bomb.position = CGPoint(x: size.width/2, y: size.height*0.5)
-//        enemy.position = position
-//        
-//        // Defino um nome para minha bomba dentro da cena para fácil acesso posteriormente
-//        enemy.name = "enemy"
-//        
-//        // A ZPosition (posição Z [profundidade]) é definida. Por ser uma bomba, ele ficará na frente do background.
-//        enemy.zPosition = 1
-//        
-//        // Configuro a sprite para passar a receber interações de física.
-//        enemy.setupDefaultPhysicsBody()
-//        //enemy.physicsBody?.categoryBitMask = enemyCategory
-//        // Adiciono minha bomba à minha cena (ela vira filha da minha cena)
-//        self.addChild(enemy)
-//
-//        // Aplico uma ação de impulso para minha bomba (usando nosso sistema de física 😎)
-//        self.applyImpulseTo(node: enemy)
-//    }
-    
     
     
     
