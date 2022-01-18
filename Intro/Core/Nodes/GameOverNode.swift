@@ -26,12 +26,14 @@ class GameOverNode: SKNode{
         playButton = SKSpriteNode(color: .red, size: CGSize(width: size.width * 0.3, height: size.height * 0.08))
         playButton.position = position
         playButton.zPosition = 151
+        playButton.name = "playAgain"
         
         let labelNode = SKLabelNode(fontNamed: "AvenirNext-Bold")
         labelNode.color = .white
         labelNode.verticalAlignmentMode = .center
         labelNode.text = "Play"
         labelNode.zPosition = 151
+        labelNode.name = "playAgain"
         
         playButton.addChild(labelNode)
     }

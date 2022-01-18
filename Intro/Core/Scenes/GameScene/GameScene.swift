@@ -14,14 +14,17 @@ class GameScene: SKScene {
     
     var player: Player
     var enemy: Enemy
+    var gameOverNode: GameOverNode
+    
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     var score: Int
-    var gameOverNode: GameOverNode
+    
     var presentedGameOverNode: Bool
     
     // First method called when scene is initialized
     override init(size: CGSize) {
+        
         self.player = Player(spriteName: "Astronaut1", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
         self.enemy = Enemy()
         self.score = 0
@@ -46,7 +49,6 @@ class GameScene: SKScene {
         //enemyController.generateEnemy(timePerEnemy: 1, width: self.size.width, height: self.size.height, "green")
         
         //GENERATION OF ENEMIES
-        
         let createEnemy = SKAction.run {
             let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
             let yPosition = CGFloat(self.size.height*1)
@@ -71,15 +73,29 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Recupero a referência para o toque
-        //let touch = touches.first
+        let touch = touches.first
         
         // Recupero a posição do toque com referência à minha scene. À minha tela.
-        //guard let touchLocation = touch?.location(in: self) else { return }
+        guard let touchLocation = touch?.location(in: self) else { return }
         
         // Procuro saber se existe um node na posição do toque.
-        //guard let node = self.nodes(at: touchLocation).first else { return }
+        guard let node = self.nodes(at: touchLocation).first else { return }
         
-        
+        switch node.name {
+            
+            //in case of player is dead anda want to play again (RESTART GAME)
+            case "playAgain" :
+            gameOverNode.removeFromParent()
+            player.countLife = 3
+            score = 0
+            updateScoreLabel()
+            player.isPaused = false
+            enemy.isPaused = false
+            presentedGameOverNode.toggle() // to false
+            
+        default:
+            return
+        }
     }
     
     /**
@@ -127,7 +143,7 @@ class GameScene: SKScene {
         
         if(player.countLife == 0 && !presentedGameOverNode){
             self.addChild(gameOverNode)
-            presentedGameOverNode.toggle()
+            presentedGameOverNode.toggle() // to true
             player.isPaused = true
             enemy.isPaused = true
             
