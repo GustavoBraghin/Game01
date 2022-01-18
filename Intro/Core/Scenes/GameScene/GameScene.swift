@@ -256,21 +256,22 @@ class GameScene: SKScene {
     }
     
     func removeEnemyNode(){
-        if let enemy = childNode(withName: "enemy"){
+        //if let enemy = childNode(withName: "enemy"){
+        self.enumerateChildNodes(withName: "enemy") { node, Error in
             
-            if(player.countLife == 0){
-                enemy.removeFromParent()
+            if(self.player.countLife == 0){
+                node.removeFromParent()
             }
 
-            if (enemy.intersects(self) == false) {
-                enemy.removeFromParent()
+            if (node.intersects(self) == false) {
+                node.removeFromParent()
                 self.score += 1
-                updateScoreLabel()
+                self.updateScoreLabel()
             }
             
-            if enemy.intersects(player){
-                enemy.removeFromParent()
-                player.countLife -= 1
+            if node.intersects(self.player){
+                node.removeFromParent()
+                self.player.countLife -= 1
             }
         }
     }
