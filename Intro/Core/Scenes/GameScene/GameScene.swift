@@ -89,6 +89,8 @@ class GameScene: SKScene {
             enemy.isPaused = false
             presentedGameOverNode = false
             
+            //not working right
+            player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
         default:
             return
         }
@@ -105,7 +107,6 @@ class GameScene: SKScene {
         let location = CGPoint(x: touchLocation.x, y: touchLocation.y)              //sets the location to change only in x axis
         
         let move = SKAction.move(to: location,  duration: 0.15)                  //action to move the player
-        
         
         player.run(move)
     }
