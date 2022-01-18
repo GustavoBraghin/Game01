@@ -10,18 +10,24 @@ import SpriteKit
 
 class GameOverNode: SKNode{
     
+    //button in the gameOverNode
     var playButton = SKShapeNode()
+    
+    //backgroundMask of gameOverNode
     var background = SKShapeNode()
     
     init(size: CGSize, position: CGPoint) {
         super.init()
         
+        //setting buttons and adding to the node
         setBg(size: size, position: position)
         setPlayButton(size: size, position: position)
+        
         self.addChild(background)
         self.addChild(playButton)
     }
     
+    //set play button with color, shape, position, and name
     func setPlayButton(size: CGSize, position: CGPoint){
         playButton = SKShapeNode(rectOf: CGSize(width: size.width * 0.3, height: size.height * 0.08), cornerRadius: 15)
         playButton.fillColor = UIColor(red: 143/255, green: 183/255, blue: 36/255, alpha: 1)
@@ -40,6 +46,7 @@ class GameOverNode: SKNode{
         playButton.addChild(labelNode)
     }
     
+    //set background with color, shape, and position
     func setBg(size: CGSize, position: CGPoint){
         background = SKShapeNode(rectOf: CGSize(width: size.width * 0.5, height: size.height * 0.33), cornerRadius: 15)
         background.fillColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.3)
@@ -51,26 +58,4 @@ class GameOverNode: SKNode{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//        override func didMove(to view: SKView) {
-//
-//            playButton = SKSpriteNode(texture: playButtonTex)
-//            playButton.position = CGPoint(x: frame.midX, y: frame.midY)
-//            self.addChild(playButton)
-//        }
-//
-//        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//            if let touch = touches.first {
-//                let pos = touch.location(in: self)
-//                let node = self.atPoint(pos)
-//
-//                if node == playButton {
-//                    if let view = view {
-//                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
-//                        let scene:SKScene = GameScene(size: self.size)
-//                        self.view?.presentScene(scene, transition: transition)
-//                    }
-//                }
-//            }
-//        }
 }
