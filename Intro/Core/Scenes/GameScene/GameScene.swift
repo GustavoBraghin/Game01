@@ -132,23 +132,8 @@ class GameScene: SKScene {
         removeEnemyNode()
         updateLifeLabel()
         
-        if(player.countLife == 0 && !presentedGameOverNode){
-            self.addChild(gameOverNode)
-            presentedGameOverNode = true
-            player.isPaused = true
-            enemy.isPaused = true
-            
-            if let action = self.action(forKey: "createEnemy") {
-                action.speed = 0
-            }
-            
-        }else if(player.countLife != 0){
-            moveBackground()
-            
-            if let action = self.action(forKey: "createEnemy") {
-                    action.speed = 1
-            }
-        }
+        //when player dies, this function pause nodes and present gameOverNode
+        isPlayerAlive()
     }
     
     /**
@@ -272,6 +257,27 @@ class GameScene: SKScene {
             if node.intersects(self.player){
                 node.removeFromParent()
                 self.player.countLife -= 1
+            }
+        }
+    }
+    
+    //check if player is alive and present gameOverNode
+    func isPlayerAlive(){
+        if(player.countLife == 0 && !presentedGameOverNode){
+            self.addChild(gameOverNode)
+            presentedGameOverNode = true
+            player.isPaused = true
+            enemy.isPaused = true
+            
+            if let action = self.action(forKey: "createEnemy") {
+                action.speed = 0
+            }
+            
+        }else if(player.countLife != 0){
+            moveBackground()
+            
+            if let action = self.action(forKey: "createEnemy") {
+                    action.speed = 1
             }
         }
     }
