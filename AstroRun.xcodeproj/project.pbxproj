@@ -81,7 +81,7 @@
 		66A4778126BC5E2200C4652E /* spaceBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceBackground.jpg; sourceTree = "<group>"; };
 		66E8B0D526C0738C002716F8 /* Astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Astronaut.jpg; sourceTree = "<group>"; };
 		66E8B0D726C076A6002716F8 /* Astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Astronaut1.png; sourceTree = "<group>"; };
-		C61DEB3E22514B09004BAADF /* Intro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61DEB3E22514B09004BAADF /* AstroRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61DEB4122514B09004BAADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C61DEB4722514B09004BAADF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		C61DEB4922514B09004BAADF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		C61DEB3F22514B09004BAADF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C61DEB3E22514B09004BAADF /* Intro.app */,
+				C61DEB3E22514B09004BAADF /* AstroRun.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,9 +287,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C61DEB3D22514B09004BAADF /* Intro */ = {
+		C61DEB3D22514B09004BAADF /* AstroRun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C61DEB5622514B0A004BAADF /* Build configuration list for PBXNativeTarget "Intro" */;
+			buildConfigurationList = C61DEB5622514B0A004BAADF /* Build configuration list for PBXNativeTarget "AstroRun" */;
 			buildPhases = (
 				C61DEB3A22514B09004BAADF /* Sources */,
 				C61DEB3B22514B09004BAADF /* Frameworks */,
@@ -299,9 +299,9 @@
 			);
 			dependencies = (
 			);
-			name = Intro;
+			name = AstroRun;
 			productName = Intro;
-			productReference = C61DEB3E22514B09004BAADF /* Intro.app */;
+			productReference = C61DEB3E22514B09004BAADF /* AstroRun.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -319,7 +319,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C61DEB3922514B09004BAADF /* Build configuration list for PBXProject "Intro" */;
+			buildConfigurationList = C61DEB3922514B09004BAADF /* Build configuration list for PBXProject "AstroRun" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -332,7 +332,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C61DEB3D22514B09004BAADF /* Intro */,
+				C61DEB3D22514B09004BAADF /* AstroRun */,
 			);
 		};
 /* End PBXProject section */
@@ -593,7 +593,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C61DEB3922514B09004BAADF /* Build configuration list for PBXProject "Intro" */ = {
+		C61DEB3922514B09004BAADF /* Build configuration list for PBXProject "AstroRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C61DEB5422514B0A004BAADF /* Debug */,
@@ -602,7 +602,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C61DEB5622514B0A004BAADF /* Build configuration list for PBXNativeTarget "Intro" */ = {
+		C61DEB5622514B0A004BAADF /* Build configuration list for PBXNativeTarget "AstroRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C61DEB5722514B0A004BAADF /* Debug */,
