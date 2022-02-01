@@ -11,15 +11,7 @@
 		6626A65F26C2EC27009F78DA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A65E26C2EC27009F78DA /* Player.swift */; };
 		6626A66226C2FA46009F78DA /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A66126C2FA46009F78DA /* Enemy.swift */; };
 		666682672795E2A6005F2DA3 /* GameOverNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666682662795E2A6005F2DA3 /* GameOverNode.swift */; };
-		66A391CF26BDA93D00DC0E85 /* Starfield8.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CC26BDA93D00DC0E85 /* Starfield8.png */; };
 		66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CD26BDA93D00DC0E85 /* Starfield2.png */; };
-		66A391D126BDA93D00DC0E85 /* Starfield7.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CE26BDA93D00DC0E85 /* Starfield7.png */; };
-		66A391D626BDAABA00DC0E85 /* BlueNebula4.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D226BDAAB900DC0E85 /* BlueNebula4.png */; };
-		66A391D726BDAABA00DC0E85 /* BlueNebula7.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D326BDAABA00DC0E85 /* BlueNebula7.png */; };
-		66A391D826BDAABA00DC0E85 /* BlueNebula8.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D426BDAABA00DC0E85 /* BlueNebula8.png */; };
-		66A391D926BDAABA00DC0E85 /* BlueNebula1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391D526BDAABA00DC0E85 /* BlueNebula1.png */; };
-		66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66A4778126BC5E2200C4652E /* spaceBackground.jpg */; };
-		66E8B0D626C0738C002716F8 /* Astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66E8B0D526C0738C002716F8 /* Astronaut.jpg */; };
 		66E8B0D826C076A6002716F8 /* Astronaut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66E8B0D726C076A6002716F8 /* Astronaut1.png */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
 		C61DEB4822514B09004BAADF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4722514B09004BAADF /* GameScene.swift */; };
@@ -27,43 +19,10 @@
 		C61DEB4D22514B09004BAADF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB4B22514B09004BAADF /* Main.storyboard */; };
 		C61DEB4F22514B0A004BAADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB4E22514B0A004BAADF /* Assets.xcassets */; };
 		C61DEB5222514B0A004BAADF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB5022514B0A004BAADF /* LaunchScreen.storyboard */; };
-		C61DEB7B22514C37004BAADF /* Wind_9.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB5B22514C34004BAADF /* Wind_9.png */; };
-		C61DEB7C22514C37004BAADF /* Explosion_8.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB5C22514C34004BAADF /* Explosion_8.png */; };
-		C61DEB7D22514C37004BAADF /* Wind_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB5D22514C34004BAADF /* Wind_1.png */; };
-		C61DEB7E22514C37004BAADF /* Wind_6.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB5E22514C34004BAADF /* Wind_6.png */; };
-		C61DEB7F22514C37004BAADF /* Explosion_4.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB5F22514C34004BAADF /* Explosion_4.png */; };
-		C61DEB8022514C37004BAADF /* Explosion_11.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6022514C34004BAADF /* Explosion_11.png */; };
-		C61DEB8122514C37004BAADF /* Explosion_12.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6122514C34004BAADF /* Explosion_12.png */; };
-		C61DEB8222514C37004BAADF /* Bomb_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6222514C34004BAADF /* Bomb_1.png */; };
-		C61DEB8322514C37004BAADF /* Explosion_10.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6322514C34004BAADF /* Explosion_10.png */; };
-		C61DEB8422514C37004BAADF /* Explosion_7.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6422514C34004BAADF /* Explosion_7.png */; };
-		C61DEB8522514C37004BAADF /* Explosion_3.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6522514C34004BAADF /* Explosion_3.png */; };
-		C61DEB8622514C37004BAADF /* Wind_16.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6622514C35004BAADF /* Wind_16.png */; };
-		C61DEB8722514C37004BAADF /* Wind_10.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6722514C35004BAADF /* Wind_10.png */; };
-		C61DEB8822514C37004BAADF /* Explosion_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6822514C35004BAADF /* Explosion_1.png */; };
-		C61DEB8922514C37004BAADF /* Bomb_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6922514C35004BAADF /* Bomb_2.png */; };
-		C61DEB8A22514C37004BAADF /* Explosion_9.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6A22514C35004BAADF /* Explosion_9.png */; };
-		C61DEB8B22514C37004BAADF /* Wind_11.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6B22514C35004BAADF /* Wind_11.png */; };
-		C61DEB8C22514C37004BAADF /* Wind_14.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6C22514C35004BAADF /* Wind_14.png */; };
-		C61DEB8D22514C37004BAADF /* Wind_12.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6D22514C35004BAADF /* Wind_12.png */; };
-		C61DEB8E22514C37004BAADF /* Wind_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6E22514C35004BAADF /* Wind_2.png */; };
-		C61DEB8F22514C37004BAADF /* Wind_5.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB6F22514C35004BAADF /* Wind_5.png */; };
-		C61DEB9022514C37004BAADF /* Explosion_6.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7022514C35004BAADF /* Explosion_6.png */; };
-		C61DEB9122514C37004BAADF /* Wind_3.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7122514C35004BAADF /* Wind_3.png */; };
-		C61DEB9222514C37004BAADF /* Explosion_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7222514C35004BAADF /* Explosion_2.png */; };
-		C61DEB9322514C37004BAADF /* Wind_8.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7322514C35004BAADF /* Wind_8.png */; };
-		C61DEB9422514C37004BAADF /* Bomb_3.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7422514C36004BAADF /* Bomb_3.png */; };
-		C61DEB9522514C37004BAADF /* Wind_4.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7522514C36004BAADF /* Wind_4.png */; };
-		C61DEB9622514C37004BAADF /* Explosion_5.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7622514C36004BAADF /* Explosion_5.png */; };
-		C61DEB9722514C37004BAADF /* Wind_7.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7722514C36004BAADF /* Wind_7.png */; };
-		C61DEB9822514C37004BAADF /* Wind_13.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7822514C36004BAADF /* Wind_13.png */; };
-		C61DEB9922514C37004BAADF /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7922514C36004BAADF /* Background.png */; };
-		C61DEB9A22514C37004BAADF /* Wind_15.png in Resources */ = {isa = PBXBuildFile; fileRef = C61DEB7A22514C36004BAADF /* Wind_15.png */; };
 		C61DEB9C22514E9F004BAADF /* GameScene+Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB9B22514E9F004BAADF /* GameScene+Physics.swift */; };
 		C61DEB9F22515006004BAADF /* SKSpriteNode+Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB9E22515006004BAADF /* SKSpriteNode+Physics.swift */; };
 		C61DEBA12251618F004BAADF /* GameScene+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEBA02251618F004BAADF /* GameScene+Extras.swift */; };
 		C61DEBA322516F5F004BAADF /* GameScene+Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEBA222516F5F004BAADF /* GameScene+Generators.swift */; };
-		C67BF9232253A2BB00DA60B3 /* explosion_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C67BF9222253A2BB00DA60B3 /* explosion_sound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,15 +30,7 @@
 		6626A65E26C2EC27009F78DA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6626A66126C2FA46009F78DA /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		666682662795E2A6005F2DA3 /* GameOverNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverNode.swift; sourceTree = "<group>"; };
-		66A391CC26BDA93D00DC0E85 /* Starfield8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield8.png; sourceTree = "<group>"; };
 		66A391CD26BDA93D00DC0E85 /* Starfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield2.png; sourceTree = "<group>"; };
-		66A391CE26BDA93D00DC0E85 /* Starfield7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield7.png; sourceTree = "<group>"; };
-		66A391D226BDAAB900DC0E85 /* BlueNebula4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula4.png; sourceTree = "<group>"; };
-		66A391D326BDAABA00DC0E85 /* BlueNebula7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula7.png; sourceTree = "<group>"; };
-		66A391D426BDAABA00DC0E85 /* BlueNebula8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula8.png; sourceTree = "<group>"; };
-		66A391D526BDAABA00DC0E85 /* BlueNebula1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueNebula1.png; sourceTree = "<group>"; };
-		66A4778126BC5E2200C4652E /* spaceBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceBackground.jpg; sourceTree = "<group>"; };
-		66E8B0D526C0738C002716F8 /* Astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Astronaut.jpg; sourceTree = "<group>"; };
 		66E8B0D726C076A6002716F8 /* Astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Astronaut1.png; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* AstroRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61DEB4122514B09004BAADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,43 +40,10 @@
 		C61DEB4E22514B0A004BAADF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C61DEB5122514B0A004BAADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C61DEB5322514B0A004BAADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C61DEB5B22514C34004BAADF /* Wind_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_9.png; sourceTree = "<group>"; };
-		C61DEB5C22514C34004BAADF /* Explosion_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_8.png; sourceTree = "<group>"; };
-		C61DEB5D22514C34004BAADF /* Wind_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_1.png; sourceTree = "<group>"; };
-		C61DEB5E22514C34004BAADF /* Wind_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_6.png; sourceTree = "<group>"; };
-		C61DEB5F22514C34004BAADF /* Explosion_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_4.png; sourceTree = "<group>"; };
-		C61DEB6022514C34004BAADF /* Explosion_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_11.png; sourceTree = "<group>"; };
-		C61DEB6122514C34004BAADF /* Explosion_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_12.png; sourceTree = "<group>"; };
-		C61DEB6222514C34004BAADF /* Bomb_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bomb_1.png; sourceTree = "<group>"; };
-		C61DEB6322514C34004BAADF /* Explosion_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_10.png; sourceTree = "<group>"; };
-		C61DEB6422514C34004BAADF /* Explosion_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_7.png; sourceTree = "<group>"; };
-		C61DEB6522514C34004BAADF /* Explosion_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_3.png; sourceTree = "<group>"; };
-		C61DEB6622514C35004BAADF /* Wind_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_16.png; sourceTree = "<group>"; };
-		C61DEB6722514C35004BAADF /* Wind_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_10.png; sourceTree = "<group>"; };
-		C61DEB6822514C35004BAADF /* Explosion_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_1.png; sourceTree = "<group>"; };
-		C61DEB6922514C35004BAADF /* Bomb_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bomb_2.png; sourceTree = "<group>"; };
-		C61DEB6A22514C35004BAADF /* Explosion_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_9.png; sourceTree = "<group>"; };
-		C61DEB6B22514C35004BAADF /* Wind_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_11.png; sourceTree = "<group>"; };
-		C61DEB6C22514C35004BAADF /* Wind_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_14.png; sourceTree = "<group>"; };
-		C61DEB6D22514C35004BAADF /* Wind_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_12.png; sourceTree = "<group>"; };
-		C61DEB6E22514C35004BAADF /* Wind_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_2.png; sourceTree = "<group>"; };
-		C61DEB6F22514C35004BAADF /* Wind_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_5.png; sourceTree = "<group>"; };
-		C61DEB7022514C35004BAADF /* Explosion_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_6.png; sourceTree = "<group>"; };
-		C61DEB7122514C35004BAADF /* Wind_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_3.png; sourceTree = "<group>"; };
-		C61DEB7222514C35004BAADF /* Explosion_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_2.png; sourceTree = "<group>"; };
-		C61DEB7322514C35004BAADF /* Wind_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_8.png; sourceTree = "<group>"; };
-		C61DEB7422514C36004BAADF /* Bomb_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bomb_3.png; sourceTree = "<group>"; };
-		C61DEB7522514C36004BAADF /* Wind_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_4.png; sourceTree = "<group>"; };
-		C61DEB7622514C36004BAADF /* Explosion_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explosion_5.png; sourceTree = "<group>"; };
-		C61DEB7722514C36004BAADF /* Wind_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_7.png; sourceTree = "<group>"; };
-		C61DEB7822514C36004BAADF /* Wind_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_13.png; sourceTree = "<group>"; };
-		C61DEB7922514C36004BAADF /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
-		C61DEB7A22514C36004BAADF /* Wind_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wind_15.png; sourceTree = "<group>"; };
 		C61DEB9B22514E9F004BAADF /* GameScene+Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Physics.swift"; sourceTree = "<group>"; };
 		C61DEB9E22515006004BAADF /* SKSpriteNode+Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Physics.swift"; sourceTree = "<group>"; };
 		C61DEBA02251618F004BAADF /* GameScene+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Extras.swift"; sourceTree = "<group>"; };
 		C61DEBA222516F5F004BAADF /* GameScene+Generators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Generators.swift"; sourceTree = "<group>"; };
-		C67BF9222253A2BB00DA60B3 /* explosion_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion_sound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,49 +147,9 @@
 		C67BF9242253A2C100DA60B3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				66E8B0D526C0738C002716F8 /* Astronaut.jpg */,
 				66E8B0D726C076A6002716F8 /* Astronaut1.png */,
-				C61DEB7922514C36004BAADF /* Background.png */,
-				66A4778126BC5E2200C4652E /* spaceBackground.jpg */,
-				C61DEB6222514C34004BAADF /* Bomb_1.png */,
-				C61DEB6922514C35004BAADF /* Bomb_2.png */,
-				C61DEB7422514C36004BAADF /* Bomb_3.png */,
-				C61DEB6822514C35004BAADF /* Explosion_1.png */,
-				C61DEB7222514C35004BAADF /* Explosion_2.png */,
-				C61DEB6522514C34004BAADF /* Explosion_3.png */,
-				C61DEB5F22514C34004BAADF /* Explosion_4.png */,
-				C61DEB7622514C36004BAADF /* Explosion_5.png */,
-				C61DEB7022514C35004BAADF /* Explosion_6.png */,
-				C61DEB6422514C34004BAADF /* Explosion_7.png */,
-				C61DEB5C22514C34004BAADF /* Explosion_8.png */,
-				C61DEB6A22514C35004BAADF /* Explosion_9.png */,
-				C61DEB6322514C34004BAADF /* Explosion_10.png */,
-				C61DEB6022514C34004BAADF /* Explosion_11.png */,
-				C61DEB6122514C34004BAADF /* Explosion_12.png */,
 				66130FE126BC91D5002DA3C0 /* green.png */,
 				66A391CD26BDA93D00DC0E85 /* Starfield2.png */,
-				66A391CE26BDA93D00DC0E85 /* Starfield7.png */,
-				66A391CC26BDA93D00DC0E85 /* Starfield8.png */,
-				66A391D526BDAABA00DC0E85 /* BlueNebula1.png */,
-				66A391D226BDAAB900DC0E85 /* BlueNebula4.png */,
-				66A391D326BDAABA00DC0E85 /* BlueNebula7.png */,
-				66A391D426BDAABA00DC0E85 /* BlueNebula8.png */,
-				C61DEB5D22514C34004BAADF /* Wind_1.png */,
-				C61DEB6E22514C35004BAADF /* Wind_2.png */,
-				C61DEB7122514C35004BAADF /* Wind_3.png */,
-				C61DEB7522514C36004BAADF /* Wind_4.png */,
-				C61DEB6F22514C35004BAADF /* Wind_5.png */,
-				C61DEB5E22514C34004BAADF /* Wind_6.png */,
-				C61DEB7722514C36004BAADF /* Wind_7.png */,
-				C61DEB7322514C35004BAADF /* Wind_8.png */,
-				C61DEB5B22514C34004BAADF /* Wind_9.png */,
-				C61DEB6722514C35004BAADF /* Wind_10.png */,
-				C61DEB6B22514C35004BAADF /* Wind_11.png */,
-				C61DEB6D22514C35004BAADF /* Wind_12.png */,
-				C61DEB7822514C36004BAADF /* Wind_13.png */,
-				C61DEB6C22514C35004BAADF /* Wind_14.png */,
-				C61DEB7A22514C36004BAADF /* Wind_15.png */,
-				C61DEB6622514C35004BAADF /* Wind_16.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -279,7 +157,6 @@
 		C67BF9252253A2D100DA60B3 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				C67BF9222253A2BB00DA60B3 /* explosion_sound.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -342,53 +219,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C61DEB8922514C37004BAADF /* Bomb_2.png in Resources */,
-				C61DEB9622514C37004BAADF /* Explosion_5.png in Resources */,
-				C61DEB9122514C37004BAADF /* Wind_3.png in Resources */,
-				C61DEB8722514C37004BAADF /* Wind_10.png in Resources */,
-				C61DEB8C22514C37004BAADF /* Wind_14.png in Resources */,
-				C61DEB9722514C37004BAADF /* Wind_7.png in Resources */,
 				66E8B0D826C076A6002716F8 /* Astronaut1.png in Resources */,
-				C61DEB8F22514C37004BAADF /* Wind_5.png in Resources */,
-				C61DEB8422514C37004BAADF /* Explosion_7.png in Resources */,
-				C61DEB8522514C37004BAADF /* Explosion_3.png in Resources */,
 				66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */,
-				66A391D726BDAABA00DC0E85 /* BlueNebula7.png in Resources */,
-				C61DEB9922514C37004BAADF /* Background.png in Resources */,
-				C61DEB8622514C37004BAADF /* Wind_16.png in Resources */,
-				C61DEB8222514C37004BAADF /* Bomb_1.png in Resources */,
 				C61DEB4D22514B09004BAADF /* Main.storyboard in Resources */,
-				C61DEB7D22514C37004BAADF /* Wind_1.png in Resources */,
 				C61DEB4F22514B0A004BAADF /* Assets.xcassets in Resources */,
-				66A391D826BDAABA00DC0E85 /* BlueNebula8.png in Resources */,
-				66A391D926BDAABA00DC0E85 /* BlueNebula1.png in Resources */,
-				C61DEB7C22514C37004BAADF /* Explosion_8.png in Resources */,
-				C61DEB9222514C37004BAADF /* Explosion_2.png in Resources */,
-				66A391D126BDA93D00DC0E85 /* Starfield7.png in Resources */,
 				C61DEB5222514B0A004BAADF /* LaunchScreen.storyboard in Resources */,
-				C61DEB8822514C37004BAADF /* Explosion_1.png in Resources */,
 				66130FE226BC91D5002DA3C0 /* green.png in Resources */,
-				C61DEB9522514C37004BAADF /* Wind_4.png in Resources */,
-				C61DEB7B22514C37004BAADF /* Wind_9.png in Resources */,
-				C61DEB8D22514C37004BAADF /* Wind_12.png in Resources */,
-				C61DEB9322514C37004BAADF /* Wind_8.png in Resources */,
-				C61DEB7F22514C37004BAADF /* Explosion_4.png in Resources */,
-				66A391D626BDAABA00DC0E85 /* BlueNebula4.png in Resources */,
-				C61DEB9822514C37004BAADF /* Wind_13.png in Resources */,
-				C61DEB8322514C37004BAADF /* Explosion_10.png in Resources */,
-				C61DEB7E22514C37004BAADF /* Wind_6.png in Resources */,
-				C61DEB8122514C37004BAADF /* Explosion_12.png in Resources */,
-				C67BF9232253A2BB00DA60B3 /* explosion_sound.wav in Resources */,
-				C61DEB8B22514C37004BAADF /* Wind_11.png in Resources */,
-				C61DEB8A22514C37004BAADF /* Explosion_9.png in Resources */,
-				66A4778226BC5E2200C4652E /* spaceBackground.jpg in Resources */,
-				C61DEB8022514C37004BAADF /* Explosion_11.png in Resources */,
-				C61DEB9422514C37004BAADF /* Bomb_3.png in Resources */,
-				C61DEB8E22514C37004BAADF /* Wind_2.png in Resources */,
-				C61DEB9A22514C37004BAADF /* Wind_15.png in Resources */,
-				C61DEB9022514C37004BAADF /* Explosion_6.png in Resources */,
-				66A391CF26BDA93D00DC0E85 /* Starfield8.png in Resources */,
-				66E8B0D626C0738C002716F8 /* Astronaut.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

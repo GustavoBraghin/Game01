@@ -10,8 +10,8 @@ import SpriteKit
 
 extension SKSpriteNode {
     
-    func setupDefaultPhysicsBody() {
-        let physicsBody = SKPhysicsBody(circleOfRadius: size.width/2)
+    func setupDefaultPhysicsBody(nodeSize: CGSize) {
+        let physicsBody = SKPhysicsBody(rectangleOf: nodeSize)
         self.physicsBody = physicsBody
         self.physicsBody?.mass = 0.05
         self.physicsBody?.allowsRotation = false
