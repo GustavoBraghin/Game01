@@ -36,7 +36,7 @@ class Enemy: SKSpriteNode {
         enemy.zPosition = 1
         
         // Configuro a sprite para passar a receber interações de física.
-        enemy.setupDefaultPhysicsBody(nodeSize: self.size)
+        enemy.setupDefaultPhysicsBody()
         enemy.physicsBody?.categoryBitMask = enemyCategory
         
         // Aplico uma ação de impulso para minha bomba (usando nosso sistema de física 😎)
