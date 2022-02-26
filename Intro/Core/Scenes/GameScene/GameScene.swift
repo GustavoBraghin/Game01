@@ -25,7 +25,7 @@ class GameScene: SKScene {
     // First method called when scene is initialized
     override init(size: CGSize) {
         
-        self.player = Player(spriteName: "Astronaut1", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
+        self.player = Player(spriteName: "astro-2", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
         self.enemy = Enemy()
         self.score = 0
         self.gameOverNode = GameOverNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
