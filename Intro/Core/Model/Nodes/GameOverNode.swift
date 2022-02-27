@@ -53,7 +53,7 @@ class GameOverNode: SKNode{
 //    }
     
     func setPlayButton(size: CGSize, position: CGPoint){
-        highscoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        highscoreLabel = SKLabelNode(fontNamed: "Roboto")
         highscoreLabel.fontColor = .white
         //highscoreLabel.verticalAlignmentMode = .center
         highscoreLabel.text = "Highscore: x"
@@ -62,7 +62,7 @@ class GameOverNode: SKNode{
         highscoreLabel.name = "playAgain"
         
         
-        tapToPlayLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        tapToPlayLabel = SKLabelNode(fontNamed: "Roboto")
         tapToPlayLabel.fontColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.6)
         //highscoreLabel.verticalAlignmentMode = .center
         tapToPlayLabel.text = "Tap to Play"

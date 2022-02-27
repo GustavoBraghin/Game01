@@ -70,12 +70,13 @@ class GameScene: SKScene {
             player.countLife = 3
             score = 0
             updateScoreLabel()
-            player.isPaused = false
+            player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
+            self.addChild(player)
             enemy.isPaused = false
             presentedGameOverNode = false
             
             //not working right
-            player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
+            
         default:
             return
         }
@@ -271,7 +272,7 @@ class GameScene: SKScene {
         if(player.countLife == 0 && !presentedGameOverNode){
             self.addChild(gameOverNode)
             presentedGameOverNode = true
-            player.isPaused = true
+            player.removeFromParent()
             enemy.isPaused = true
             
             if let action = self.action(forKey: "createEnemy") {
