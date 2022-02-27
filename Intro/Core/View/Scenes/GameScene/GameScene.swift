@@ -45,22 +45,7 @@ class GameScene: SKScene {
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
-        
-        //GENERATION OF ENEMIES
-        let createEnemy = SKAction.run {
-            let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
-            let yPosition = CGFloat(self.size.height*1)
-            let enemy = self.enemy.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
-            self.addChild(enemy)
-        }
-        
-        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.5)))
-        
-        let sequence = SKAction.sequence([createEnemy, waitInBetween])
-        
-        let repeatForever = SKAction.repeatForever(sequence)
-        
-        self.run(repeatForever, withKey: "createEnemy")
+        createEnemy()
     }
     
     /**
@@ -135,6 +120,25 @@ class GameScene: SKScene {
         
         //when player dies, this function pause nodes and present gameOverNode
         isPlayerAlive()
+    }
+    
+    func createEnemy(){
+        
+        //GENERATION OF ENEMIES
+        let createEnemy = SKAction.run {
+            let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
+            let yPosition = CGFloat(self.size.height*1)
+            let enemy = self.enemy.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
+            self.addChild(enemy)
+        }
+        
+        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.5)))
+        
+        let sequence = SKAction.sequence([createEnemy, waitInBetween])
+        
+        let repeatForever = SKAction.repeatForever(sequence)
+        
+        self.run(repeatForever, withKey: "createEnemy")
     }
     
     /**
@@ -282,46 +286,6 @@ class GameScene: SKScene {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     /************************************************
     // MARK: Other. Não será utilizado em nossa aula.
