@@ -13,6 +13,8 @@ class GameOverNode: SKNode{
     //button in the gameOverNode
     var playButton = SKShapeNode()
     var mainMenuButton = SKShapeNode()
+    var highscoreLabel = SKLabelNode()
+    var tapToPlayLabel = SKLabelNode()
     
     //backgroundMask of gameOverNode
     var background = SKShapeNode()
@@ -26,28 +28,50 @@ class GameOverNode: SKNode{
         //setMainMenuButton(size: size, position: position)
         
         self.addChild(background)
-        self.addChild(playButton)
+        //self.addChild(playButton)
         //self.addChild(mainMenuButton)
     }
     
     //set play button with color, shape, position, and name
+//    func setPlayButton(size: CGSize, position: CGPoint){
+//        playButton = SKShapeNode(rectOf: CGSize(width: size.width * 0.3, height: size.height * 0.08), cornerRadius: 15)
+//        playButton.fillColor = UIColor(red: 143/255, green: 183/255, blue: 36/255, alpha: 1)
+//        playButton.strokeColor = .clear
+//        //playButton.position = CGPoint(x: position.x, y: position.y * 1.15)
+//        playButton.position = position
+//        playButton.zPosition = 151
+//        playButton.name = "playAgain"
+//
+//        let labelNode = SKLabelNode(fontNamed: "AvenirNext-Bold")
+//        labelNode.color = .white
+//        labelNode.verticalAlignmentMode = .center
+//        labelNode.text = "Play"
+//        labelNode.zPosition = 151
+//        labelNode.name = "playAgain"
+//
+//        playButton.addChild(labelNode)
+//    }
+    
     func setPlayButton(size: CGSize, position: CGPoint){
-        playButton = SKShapeNode(rectOf: CGSize(width: size.width * 0.3, height: size.height * 0.08), cornerRadius: 15)
-        playButton.fillColor = UIColor(red: 143/255, green: 183/255, blue: 36/255, alpha: 1)
-        playButton.strokeColor = .clear
-        //playButton.position = CGPoint(x: position.x, y: position.y * 1.15)
-        playButton.position = position
-        playButton.zPosition = 151
-        playButton.name = "playAgain"
+        highscoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        highscoreLabel.fontColor = .white
+        //highscoreLabel.verticalAlignmentMode = .center
+        highscoreLabel.text = "Highscore: x"
+        highscoreLabel.position = CGPoint(x: position.x, y: position.y * 1.15)
+        highscoreLabel.zPosition = 151
+        highscoreLabel.name = "playAgain"
         
-        let labelNode = SKLabelNode(fontNamed: "AvenirNext-Bold")
-        labelNode.color = .white
-        labelNode.verticalAlignmentMode = .center
-        labelNode.text = "Play"
-        labelNode.zPosition = 151
-        labelNode.name = "playAgain"
         
-        playButton.addChild(labelNode)
+        tapToPlayLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        tapToPlayLabel.fontColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.6)
+        //highscoreLabel.verticalAlignmentMode = .center
+        tapToPlayLabel.text = "Tap to Play"
+        tapToPlayLabel.position = CGPoint(x: position.x, y: position.y * 0.95)
+        tapToPlayLabel.zPosition = 151
+        tapToPlayLabel.name = "playAgain"
+        
+        self.addChild(highscoreLabel)
+        self.addChild(tapToPlayLabel)
     }
     
     //set play button with color, shape, position, and name
@@ -71,11 +95,13 @@ class GameOverNode: SKNode{
     
     //set background with color, shape, and position
     func setBg(size: CGSize, position: CGPoint){
-        background = SKShapeNode(rectOf: CGSize(width: size.width * 0.5, height: size.height * 0.33), cornerRadius: 15)
-        background.fillColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.3)
+        background = SKShapeNode(rectOf: CGSize(width: size.width, height: size.height), cornerRadius: 15)
+        background.fillColor = .clear
+        //background.fillColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 0.3)
         background.strokeColor = .clear
         background.position = position
         background.zPosition = 150
+        background.name = "playAgain"
     }
     
     required init?(coder aDecoder: NSCoder) {
