@@ -16,8 +16,8 @@ class GameScene: SKScene {
     var enemy: Enemy
     var menuNode: MenuNode
     
-    let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
-    let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
+    let scoreLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
+    let lifeLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
     var score: Int
     
     var presentedGameOverNode: Bool
