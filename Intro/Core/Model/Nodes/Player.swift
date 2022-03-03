@@ -10,11 +10,11 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
-    var countLife: Int
+    var isAlive: Bool
     
     init(spriteName: String, position: CGPoint) {
         let playerSize = SKTexture(imageNamed: spriteName)
-        countLife = 3
+        isAlive = true
         
         super.init(texture: playerSize, color: .clear, size: playerSize.size())
         

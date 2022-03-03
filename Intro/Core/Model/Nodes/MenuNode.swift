@@ -57,7 +57,7 @@ class MenuNode: SKNode{
         highscoreLabel.fontColor = .white
         //highscoreLabel.verticalAlignmentMode = .center
         highscoreLabel.text = "Highscore: x"
-        highscoreLabel.position = CGPoint(x: position.x, y: position.y * 1.15)
+        highscoreLabel.position = CGPoint(x: position.x, y: position.y * 1.05)
         highscoreLabel.zPosition = 151
         highscoreLabel.name = "playAgain"
         
@@ -66,7 +66,7 @@ class MenuNode: SKNode{
         tapToPlayLabel.fontColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.6)
         //highscoreLabel.verticalAlignmentMode = .center
         tapToPlayLabel.text = "Tap to Play"
-        tapToPlayLabel.position = CGPoint(x: position.x, y: position.y * 0.95)
+        tapToPlayLabel.position = CGPoint(x: position.x, y: position.y * 0.85)
         tapToPlayLabel.zPosition = 151
         tapToPlayLabel.name = "playAgain"
         

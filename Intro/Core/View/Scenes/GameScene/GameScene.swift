@@ -17,7 +17,6 @@ class GameScene: SKScene {
     var menuNode: MenuNode
     
     let scoreLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
-    let lifeLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
     var score: Int
     
     var presentedGameOverNode: Bool
@@ -37,7 +36,6 @@ class GameScene: SKScene {
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
         self.createScoreLabel(with: CGPoint(x: size.width*0.50, y: size.height*0.88))
         self.createWalls()
-        self.createLifeLabel(with: CGPoint(x: size.width*0.20, y: size.height*0.89))
         
         //add contents in scene
         self.addChild(player)
@@ -67,7 +65,7 @@ class GameScene: SKScene {
             //in case of player is dead and want to play again (RESTART GAME)
             case "playAgain" :
             menuNode.removeFromParent()
-            player.countLife = 3
+            player.isAlive = true
             score = 0
             updateScoreLabel()
             player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
@@ -117,7 +115,6 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
         removeEnemyNode()
-        updateLifeLabel()
         
         //when player dies, this function pause nodes and present gameOverNode
         isPlayerAlive()
@@ -213,32 +210,7 @@ class GameScene: SKScene {
         
         self.addChild(scoreLabel)
     }
-    
-    //set lifeLabel patterns
-    func createLifeLabel(with position: CGPoint){
-        lifeLabel.text = "♥️ ♥️ ♥️"
-        lifeLabel.fontSize = 25
-        lifeLabel.fontColor = .white
-        lifeLabel.position = position
-        lifeLabel.zPosition = 10
-        
-        self.addChild(lifeLabel)
-    }
-    
-    //updates lifeLabel checking the countLife of player
-    func updateLifeLabel(){
-        
-        if player.countLife == 3 {
-            lifeLabel.text = "♥️ ♥️ ♥️"
-        }else if player.countLife == 2{
-            lifeLabel.text = "♥️ ♥️"
-        }else if player.countLife == 1{
-            lifeLabel.text = "♥️"
-        }else{
-            lifeLabel.text = "Lose"
-        }
-    }
-    
+
     //update scoreLabel
     func updateScoreLabel(){
         self.scoreLabel.text = ("\(score)")
@@ -250,7 +222,7 @@ class GameScene: SKScene {
         //if let enemy = childNode(withName: "enemy"){
         self.enumerateChildNodes(withName: "enemy") { node, Error in
             
-            if(self.player.countLife == 0){
+            if(!self.player.isAlive){
                 node.removeFromParent()
             }
 
@@ -262,14 +234,14 @@ class GameScene: SKScene {
             
             if node.intersects(self.player){
                 node.removeFromParent()
-                self.player.countLife -= 1
+                self.player.isAlive = false
             }
         }
     }
     
     //check if player is alive and present gameOverNode
     func isPlayerAlive(){
-        if(player.countLife == 0 && !presentedGameOverNode){
+        if(!player.isAlive && !presentedGameOverNode){
             self.addChild(menuNode)
             presentedGameOverNode = true
             player.removeFromParent()
@@ -279,7 +251,7 @@ class GameScene: SKScene {
                 action.speed = 0
             }
             
-        }else if(player.countLife != 0){
+        }else if(player.isAlive){
             moveBackground()
             
             if let action = self.action(forKey: "createEnemy") {
