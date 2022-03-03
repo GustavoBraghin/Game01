@@ -12,7 +12,7 @@
 		6626A66226C2FA46009F78DA /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A66126C2FA46009F78DA /* Enemy.swift */; };
 		6639ABEB27AAF6BD005523EB /* astro.png in Resources */ = {isa = PBXBuildFile; fileRef = 6639ABEA27AAF6BD005523EB /* astro.png */; };
 		6639ABED27AAF745005523EB /* astro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6639ABEC27AAF745005523EB /* astro-2.png */; };
-		666682672795E2A6005F2DA3 /* GameOverNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666682662795E2A6005F2DA3 /* GameOverNode.swift */; };
+		666682672795E2A6005F2DA3 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666682662795E2A6005F2DA3 /* MenuNode.swift */; };
 		66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CD26BDA93D00DC0E85 /* Starfield2.png */; };
 		66E8B0D826C076A6002716F8 /* Astronaut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 66E8B0D726C076A6002716F8 /* Astronaut1.png */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
@@ -33,7 +33,7 @@
 		6626A66126C2FA46009F78DA /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		6639ABEA27AAF6BD005523EB /* astro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astro.png; sourceTree = "<group>"; };
 		6639ABEC27AAF745005523EB /* astro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "astro-2.png"; sourceTree = "<group>"; };
-		666682662795E2A6005F2DA3 /* GameOverNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverNode.swift; sourceTree = "<group>"; };
+		666682662795E2A6005F2DA3 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
 		66A391CD26BDA93D00DC0E85 /* Starfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield2.png; sourceTree = "<group>"; };
 		66E8B0D726C076A6002716F8 /* Astronaut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Astronaut1.png; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* AstroRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +66,7 @@
 			children = (
 				6626A65E26C2EC27009F78DA /* Player.swift */,
 				6626A66126C2FA46009F78DA /* Enemy.swift */,
-				666682662795E2A6005F2DA3 /* GameOverNode.swift */,
+				666682662795E2A6005F2DA3 /* MenuNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -136,7 +136,6 @@
 				C61DEB5A22514C29004BAADF /* Resources */,
 				C61DEB5922514B86004BAADF /* Core */,
 				C61DEB9D22514FF0004BAADF /* Engine */,
-				C61DEB4E22514B0A004BAADF /* Assets.xcassets */,
 				C61DEB5322514B0A004BAADF /* Info.plist */,
 			);
 			path = Intro;
@@ -158,8 +157,9 @@
 		C61DEB5A22514C29004BAADF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C67BF9252253A2D100DA60B3 /* Sounds */,
+				C61DEB4E22514B0A004BAADF /* Assets.xcassets */,
 				C67BF9242253A2C100DA60B3 /* Images */,
+				C67BF9252253A2D100DA60B3 /* Sounds */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				C61DEB4A22514B09004BAADF /* GameViewController.swift in Sources */,
 				C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */,
 				C61DEBA12251618F004BAADF /* GameScene+Extras.swift in Sources */,
-				666682672795E2A6005F2DA3 /* GameOverNode.swift in Sources */,
+				666682672795E2A6005F2DA3 /* MenuNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

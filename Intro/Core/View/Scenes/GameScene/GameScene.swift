@@ -14,7 +14,7 @@ class GameScene: SKScene {
     
     var player: Player
     var enemy: Enemy
-    var gameOverNode: GameOverNode
+    var menuNode: MenuNode
     
     let scoreLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
     let lifeLabel = SKLabelNode(fontNamed: "HelveticaNeue-CondensedBold")
@@ -28,7 +28,7 @@ class GameScene: SKScene {
         self.player = Player(spriteName: "astro-2", position: CGPoint(x: (size.width)/2, y: (size.height)*0.15))
         self.enemy = Enemy()
         self.score = 0
-        self.gameOverNode = GameOverNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
+        self.menuNode = MenuNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
         self.presentedGameOverNode = false
         super.init(size: size)
         
@@ -66,7 +66,7 @@ class GameScene: SKScene {
             
             //in case of player is dead and want to play again (RESTART GAME)
             case "playAgain" :
-            gameOverNode.removeFromParent()
+            menuNode.removeFromParent()
             player.countLife = 3
             score = 0
             updateScoreLabel()
@@ -270,7 +270,7 @@ class GameScene: SKScene {
     //check if player is alive and present gameOverNode
     func isPlayerAlive(){
         if(player.countLife == 0 && !presentedGameOverNode){
-            self.addChild(gameOverNode)
+            self.addChild(menuNode)
             presentedGameOverNode = true
             player.removeFromParent()
             enemy.isPaused = true
