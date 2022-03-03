@@ -28,7 +28,7 @@ class GameScene: SKScene {
         self.enemy = Enemy()
         self.score = 0
         self.menuNode = MenuNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
-        self.presentedGameOverNode = false
+        self.presentedGameOverNode = true
         super.init(size: size)
         
         // Methods for preparation of scene
@@ -38,12 +38,16 @@ class GameScene: SKScene {
         self.createWalls()
         
         //add contents in scene
-        self.addChild(player)
+        self.addChild(menuNode)
+        //self.addChild(player)
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
         createEnemy()
+        if let action = self.action(forKey: "createEnemy") {
+            action.speed = 0
+        }
     }
     
     /**
@@ -68,11 +72,14 @@ class GameScene: SKScene {
             player.isAlive = true
             score = 0
             updateScoreLabel()
+            scoreLabel.isHidden = false
             player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
             self.addChild(player)
             enemy.isPaused = false
             presentedGameOverNode = false
-            
+            if let action = self.action(forKey: "createEnemy") {
+                action.speed = 1
+            }
             //not working right
             
         default:
@@ -207,6 +214,7 @@ class GameScene: SKScene {
         scoreLabel.fontColor = .white
         scoreLabel.position = position
         scoreLabel.zPosition = 10
+        scoreLabel.isHidden = true
         
         self.addChild(scoreLabel)
     }

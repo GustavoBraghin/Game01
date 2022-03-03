@@ -14,7 +14,7 @@ class Player: SKSpriteNode {
     
     init(spriteName: String, position: CGPoint) {
         let playerSize = SKTexture(imageNamed: spriteName)
-        isAlive = true
+        isAlive = false
         
         super.init(texture: playerSize, color: .clear, size: playerSize.size())
         
