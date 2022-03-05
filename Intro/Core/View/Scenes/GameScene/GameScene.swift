@@ -45,9 +45,7 @@ class GameScene: SKScene {
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
         createEnemy()
-        if let action = self.action(forKey: "createEnemy") {
-            action.speed = 0
-        }
+        pauseEnemyGeneration()
     }
     
     /**
@@ -69,18 +67,21 @@ class GameScene: SKScene {
             //in case of player is dead and want to play again (RESTART GAME)
             case "playAgain" :
             menuNode.removeFromParent()
+            
             player.isAlive = true
+            
             score = 0
             updateScoreLabel()
             scoreLabel.isHidden = false
+            
             player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
             self.addChild(player)
+            
             enemy.isPaused = false
+            
             presentedGameOverNode = false
-            if let action = self.action(forKey: "createEnemy") {
-                action.speed = 1
-            }
-            //not working right
+            
+            unpauseEnemyGeneration()
             
         default:
             return
@@ -265,6 +266,18 @@ class GameScene: SKScene {
             if let action = self.action(forKey: "createEnemy") {
                     action.speed = 1
             }
+        }
+    }
+    
+    func pauseEnemyGeneration(){
+        if let action = self.action(forKey: "createEnemy") {
+            action.speed = 0
+        }
+    }
+    
+    func unpauseEnemyGeneration(){
+        if let action = self.action(forKey: "createEnemy") {
+            action.speed = 1
         }
     }
     

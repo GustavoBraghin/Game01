@@ -26,10 +26,6 @@ class MenuNode: SKNode{
         setBg(size: size, position: position)
         setPlayButton(size: size, position: position)
         //setMainMenuButton(size: size, position: position)
-        
-        self.addChild(background)
-        //self.addChild(playButton)
-        //self.addChild(mainMenuButton)
     }
     
     //set play button with color, shape, position, and name
@@ -102,6 +98,8 @@ class MenuNode: SKNode{
         background.position = position
         background.zPosition = 150
         background.name = "playAgain"
+        
+        self.addChild(background)
     }
     
     required init?(coder aDecoder: NSCoder) {
