@@ -67,8 +67,8 @@ class Enemy: SKSpriteNode {
     
     func applyImpulseTo(node: SKNode) {
         
-        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -7...7), dy: -20), duration: 0.1)
-        let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.003...0.003), duration: 0.025)
+        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -7...7), dy: -30), duration: 0.01)
+        let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.003...0.003), duration: 0.01)
         node.run(applyImpulse)
         node.run(applyAngularImpulse)
         

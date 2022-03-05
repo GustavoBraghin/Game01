@@ -137,7 +137,7 @@ class GameScene: SKScene {
             self.addChild(enemy)
         }
         
-        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.5)))
+        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.2)))
         
         let sequence = SKAction.sequence([createEnemy, waitInBetween])
         
