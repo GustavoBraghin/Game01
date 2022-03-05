@@ -287,32 +287,10 @@ class GameScene: SKScene {
         }
     }
     
-    /************************************************
-    // MARK: Other. Não será utilizado em nossa aula.
-    ************************************************/
-    
-//    private lazy var explosionTextures: [SKTexture] = {
-//        return self.getExplosionTextures()
-//    }()
-//    /*
-//    lazy var windTextures: [SKTexture] = {
-//        return self.getWindTextures()
-//    }()
-//    */
-//    lazy var explosionSoundAction: SKAction = {
-//        return SKAction.playSoundFileNamed("explosion_sound.wav", waitForCompletion: false)
-//    }()
-    
     func setPhysicsUp() {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -6.8)
     }
-    
-//    func startWorldEvents(with sceneSize: CGSize) {
-//        // Crio uma explosão. Esse método não faz parte da aula.
-//        self.createExplosion(position: CGPoint(x: sceneSize.width/2, y: sceneSize.height/2))
-//        //self.startWind(range: sceneSize)
-//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
