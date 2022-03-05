@@ -21,6 +21,9 @@ class GameScene: SKScene {
     
     var presentedGameOverNode: Bool
     
+    let defaults = UserDefaults.standard
+    var highScore = UserDefaults.standard.integer(forKey: "highscore")
+    
     // First method called when scene is initialized
     override init(size: CGSize) {
         
@@ -251,6 +254,8 @@ class GameScene: SKScene {
     //check if player is alive and present gameOverNode
     func isPlayerAlive(){
         if(!player.isAlive && !presentedGameOverNode){
+            saveHighscore()
+            menuNode = MenuNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
             self.addChild(menuNode)
             presentedGameOverNode = true
             player.removeFromParent()
@@ -272,6 +277,13 @@ class GameScene: SKScene {
     func unpauseEnemyGeneration(){
         if let action = self.action(forKey: "createEnemy") {
             action.speed = 1
+        }
+    }
+    
+    func saveHighscore(){
+        if(self.score > self.highScore){
+            defaults.set(score, forKey: "highscore")
+            highScore = defaults.integer(forKey: "highscore")
         }
     }
     

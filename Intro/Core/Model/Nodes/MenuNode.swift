@@ -19,6 +19,8 @@ class MenuNode: SKNode{
     //backgroundMask of gameOverNode
     var background = SKShapeNode()
     
+    let highscore = UserDefaults.standard.integer(forKey: "highscore")
+    
     init(size: CGSize, position: CGPoint) {
         super.init()
         
@@ -52,7 +54,7 @@ class MenuNode: SKNode{
         highscoreLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
         highscoreLabel.fontColor = .white
         //highscoreLabel.verticalAlignmentMode = .center
-        highscoreLabel.text = "Highscore: x"
+        highscoreLabel.text = "Highscore: \(highscore)"
         highscoreLabel.position = CGPoint(x: position.x, y: position.y * 1.05)
         highscoreLabel.zPosition = 151
         highscoreLabel.name = "playAgain"
