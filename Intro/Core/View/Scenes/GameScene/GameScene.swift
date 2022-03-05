@@ -256,16 +256,10 @@ class GameScene: SKScene {
             player.removeFromParent()
             enemy.isPaused = true
             
-            if let action = self.action(forKey: "createEnemy") {
-                action.speed = 0
-            }
+            self.pauseEnemyGeneration()
             
         }else if(player.isAlive){
             moveBackground()
-            
-            if let action = self.action(forKey: "createEnemy") {
-                    action.speed = 1
-            }
         }
     }
     
