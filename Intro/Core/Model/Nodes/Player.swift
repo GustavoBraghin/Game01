@@ -33,6 +33,6 @@ class Player: SKSpriteNode {
         self.zPosition = 1
         self.setScale(0.7)
         self.setupDefaultPhysicsBody()
-        self.physicsBody?.isDynamic = false
+        self.physicsBody?.isDynamic = true
     }
 }
