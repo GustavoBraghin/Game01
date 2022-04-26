@@ -8,6 +8,7 @@
 
 // Importo a framework SpriteKit para desenvolvimento de Jogos 2D
 import SpriteKit
+import AVKit
 
 // Declaração da minha classe GameScene, que herda de SKScene
 class GameScene: SKScene {
@@ -23,6 +24,20 @@ class GameScene: SKScene {
     
     let defaults = UserDefaults.standard
     var highScore = UserDefaults.standard.integer(forKey: "highscore")
+    
+    lazy var backgroundMusic: AVAudioPlayer? = {
+        guard let url = Bundle.main.url(forResource: "blueberry", withExtension: "wav") else {
+            return nil
+        }
+
+        do {
+            let player = try AVAudioPlayer(contentsOf: url)
+            player.numberOfLoops = -1
+            return player
+        } catch {
+            return nil
+        }
+    }()
     
     // First method called when scene is initialized
     override init(size: CGSize) {
@@ -43,6 +58,7 @@ class GameScene: SKScene {
         //add contents in scene
         self.addChild(menuNode)
         //self.addChild(player)
+        backgroundMusic?.play()
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
@@ -137,11 +153,11 @@ class GameScene: SKScene {
         let createEnemy = SKAction.run {
             let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
             let yPosition = CGFloat(self.size.height*1)
-            let enemy = self.enemy.createEnemy(spriteName: "green", position: CGPoint(x: xPosition, y: yPosition))
+            let enemy = self.enemy.createEnemy(spriteName: "et", position: CGPoint(x: xPosition, y: yPosition))
             self.addChild(enemy)
         }
         
-        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.55...1.2)))
+        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 0.35...0.8)))
         
         let sequence = SKAction.sequence([createEnemy, waitInBetween])
         

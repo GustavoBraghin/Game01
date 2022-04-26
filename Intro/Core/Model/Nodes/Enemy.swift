@@ -24,7 +24,7 @@ class Enemy: SKSpriteNode {
         
         let enemy = SKSpriteNode(imageNamed: spriteName)
         // Defino o tamanho do meu sprite como 75% do tamanho original
-        enemy.setScale(0.22)
+        enemy.setScale(1.4)
         
         // Insiro a Posição (X, Y) ao meu node.
         enemy.position = position
@@ -67,7 +67,7 @@ class Enemy: SKSpriteNode {
     
     func applyImpulseTo(node: SKNode) {
         
-        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -7...7), dy: -30), duration: 0.01)
+        let applyImpulse = SKAction.applyImpulse(CGVector(dx: CGFloat.random(in: -7...7), dy: -25), duration: 0.01)
         let applyAngularImpulse = SKAction.applyAngularImpulse(CGFloat.random(in: -0.003...0.003), duration: 0.01)
         node.run(applyImpulse)
         node.run(applyAngularImpulse)
