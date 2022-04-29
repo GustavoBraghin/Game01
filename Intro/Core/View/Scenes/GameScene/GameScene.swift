@@ -9,6 +9,7 @@
 // Importo a framework SpriteKit para desenvolvimento de Jogos 2D
 import SpriteKit
 import AVKit
+import GameKit
 
 // Declaração da minha classe GameScene, que herda de SKScene
 class GameScene: SKScene {
@@ -302,6 +303,32 @@ class GameScene: SKScene {
             highScore = defaults.integer(forKey: "highscore")
         }
     }
+    
+//    func saveHighscoreGameCenter(highscore: Int) {
+//        print ("You have a high score!")
+//        print("\n Attempting to authenticating with GC...")
+//
+//        if GKLocalPlayer.local.isAuthenticated {
+//            print("\n Success! Sending highscore of \(score) to leaderboard")
+//
+//            //---------PUT YOUR ID HERE:
+//            //                          |
+//            //                          |
+//            //                          V
+//            let my_leaderboard_id = "YOUR_LEADERBOARD_ID"
+//            let scoreReporter = GKScore(leaderboardIdentifier: my_leaderboard_id)
+//
+//            scoreReporter.value = Int64(score)
+//            let scoreArray: [GKScore] = [scoreReporter]
+//
+//            GKScore.report(scoreArray, withCompletionHandler: {error -> Void in
+//                if error != nil {
+//                    print("An error has occured:")
+//                    print(error?.localizedDescription ?? "")
+//                }
+//            })
+//        }
+//    }
     
     func setPhysicsUp() {
         self.physicsWorld.contactDelegate = self
