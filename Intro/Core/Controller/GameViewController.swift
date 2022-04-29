@@ -9,11 +9,32 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import GameKit
 
 class GameViewController: UIViewController {
+    
+    func authenticatePlayer(){
+        let player = GKLocalPlayer.local
+        
+        player.authenticateHandler = { vc, error in
+            
+            guard error == nil else {
+                print(error?.localizedDescription ?? "error")
+                return
+            }
+            
+            if (vc != nil) {
+                self.present(vc!, animated: true, completion: nil)
+            } else {
+                print("Player is authenticated = \(player.isAuthenticated)")
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authenticatePlayer()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -30,7 +51,7 @@ class GameViewController: UIViewController {
             view.showsNodeCount = false
         }
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }

@@ -13,6 +13,7 @@
 		6639ABED27AAF745005523EB /* astro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6639ABEC27AAF745005523EB /* astro-2.png */; };
 		666682672795E2A6005F2DA3 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666682662795E2A6005F2DA3 /* MenuNode.swift */; };
 		66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CD26BDA93D00DC0E85 /* Starfield2.png */; };
+		66C91B07281C7C2B00A6C332 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C91B06281C7C2B00A6C332 /* GameKit.framework */; };
 		66FA3469281872A90053630A /* et.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FA3466281872A80053630A /* et.png */; };
 		66FA347528187CA20053630A /* blueberry.wav in Resources */ = {isa = PBXBuildFile; fileRef = 66FA347428187CA20053630A /* blueberry.wav */; };
 		C61DEB4222514B09004BAADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61DEB4122514B09004BAADF /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		6639ABEC27AAF745005523EB /* astro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "astro-2.png"; sourceTree = "<group>"; };
 		666682662795E2A6005F2DA3 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
 		66A391CD26BDA93D00DC0E85 /* Starfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield2.png; sourceTree = "<group>"; };
+		66C91B06281C7C2B00A6C332 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		66FA3466281872A80053630A /* et.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = et.png; sourceTree = "<group>"; };
 		66FA347428187CA20053630A /* blueberry.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blueberry.wav; sourceTree = "<group>"; };
 		C61DEB3E22514B09004BAADF /* AstroRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AstroRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C91B07281C7C2B00A6C332 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,14 @@
 			path = GameScene;
 			sourceTree = "<group>";
 		};
+		66C91B05281C7C2B00A6C332 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66C91B06281C7C2B00A6C332 /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		66D334B027CAD3A20018636E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +130,7 @@
 			children = (
 				C61DEB4022514B09004BAADF /* Intro */,
 				C61DEB3F22514B09004BAADF /* Products */,
+				66C91B05281C7C2B00A6C332 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
