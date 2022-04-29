@@ -15,6 +15,7 @@ class MenuNode: SKNode{
     var mainMenuButton = SKShapeNode()
     var highscoreLabel = SKLabelNode()
     var tapToPlayLabel = SKLabelNode()
+    var gameCenterButton = SKLabelNode()
     
     //backgroundMask of gameOverNode
     var background = SKShapeNode()
@@ -27,6 +28,7 @@ class MenuNode: SKNode{
         //setting buttons and adding to the node
         setBg(size: size, position: position)
         setPlayButton(size: size, position: position)
+        setGameCenterButton(size: size)
         //setMainMenuButton(size: size, position: position)
     }
     
@@ -70,6 +72,17 @@ class MenuNode: SKNode{
         
         self.addChild(highscoreLabel)
         self.addChild(tapToPlayLabel)
+    }
+    
+    func setGameCenterButton(size: CGSize) {
+        gameCenterButton = SKLabelNode(fontNamed: "Avenir Next Bold")
+        gameCenterButton.fontColor = .white
+        gameCenterButton.text = "GC"
+        gameCenterButton.position = CGPoint(x: size.width * 0.88, y: size.height * 0.9)
+        gameCenterButton.zPosition = 152
+        gameCenterButton.name = "gameCenterButton"
+        
+        self.addChild(gameCenterButton)
     }
     
     //set play button with color, shape, position, and name
