@@ -269,8 +269,10 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             if node.intersects(self.player) && !self.player.isBliking {
                 node.removeFromParent()
                 self.playSound(fileName: "impact.mp3")
-                self.player.blink()
                 self.player.isAlive -= 1
+                if(self.player.isAlive > 0) {
+                    self.player.blink()
+                }
             }
         }
     }
