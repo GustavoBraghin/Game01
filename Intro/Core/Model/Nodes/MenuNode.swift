@@ -78,7 +78,7 @@ class MenuNode: SKNode{
         gameCenterButton = SKLabelNode(fontNamed: "Avenir Next Bold")
         gameCenterButton.fontColor = .white
         gameCenterButton.text = "GC"
-        gameCenterButton.position = CGPoint(x: size.width * 0.88, y: size.height * 0.9)
+        gameCenterButton.position = CGPoint(x: size.width * 0.88, y: size.height * 0.88)
         gameCenterButton.zPosition = 152
         gameCenterButton.name = "gameCenterButton"
         

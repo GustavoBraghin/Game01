@@ -19,6 +19,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
     var menuNode: MenuNode
     
     let scoreLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
+    let lifeLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
     var score: Int
     
     var presentedGameOverNode: Bool
@@ -54,6 +55,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         self.setPhysicsUp()
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.55))
         self.createScoreLabel(with: CGPoint(x: size.width*0.50, y: size.height*0.88))
+        self.createLifeLabel(with: CGPoint(x: size.width*0.15, y: size.height*0.88))
         self.createWalls()
         
         //add contents in scene
@@ -94,6 +96,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             score = 0
             updateScoreLabel()
             scoreLabel.isHidden = false
+            lifeLabel.isHidden = false
             
             player.position = CGPoint(x: (size.width)/2, y: (size.height)*0.15)
             self.addChild(player)
@@ -244,6 +247,17 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         
         self.addChild(scoreLabel)
     }
+    
+    func createLifeLabel(with position: CGPoint){
+        lifeLabel.text = "♥️"
+        lifeLabel.fontSize = 40
+        lifeLabel.fontColor = .white
+        lifeLabel.position = position
+        lifeLabel.zPosition = 10
+        lifeLabel.isHidden = true
+        
+        self.addChild(lifeLabel)
+    }
 
     //update scoreLabel
     func updateScoreLabel(){
@@ -260,7 +274,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
                 node.removeFromParent()
             }
 
-            if (node.intersects(self) == false && !self.player.isBliking) {
+            if (node.intersects(self) == false) {
                 node.removeFromParent()
                 self.score += 1
                 self.updateScoreLabel()
@@ -270,6 +284,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
                 node.removeFromParent()
                 self.playSound(fileName: "impact.mp3")
                 self.player.isAlive -= 1
+                self.lifeLabel.text = ""
                 if(self.player.isAlive > 0) {
                     self.player.blink()
                 }
