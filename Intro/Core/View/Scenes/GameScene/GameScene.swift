@@ -102,6 +102,10 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             presentedGameOverNode = false
             
             unpauseEnemyGeneration()
+            break
+            
+            case "gameCenterButton":
+            showLeaderboard()
             
         default:
             return
@@ -301,14 +305,15 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         if(self.score > self.highScore){
             defaults.set(score, forKey: "highscore")
             highScore = defaults.integer(forKey: "highscore")
+            saveHighscoreGameCenter()
         }
     }
     
-    func saveScoreGameCenter(){
+    func saveHighscoreGameCenter(){
         let player = GKLocalPlayer.local
         if player.isAuthenticated {
             
-            let myLeaderboardID = ""
+            let myLeaderboardID = "highscore"
             let scoreReporter = GKScore(leaderboardIdentifier: myLeaderboardID)
             
             scoreReporter.value = Int64(score)
@@ -354,7 +359,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         let vc = GKGameCenterViewController()
         vc.gameCenterDelegate = self
         vc.viewState = .leaderboards
-        vc.leaderboardIdentifier = ""
+        vc.leaderboardIdentifier = "highscore"
         
         let sceneViewController = self.view?.window?.rootViewController
         sceneViewController?.present(vc, animated: true, completion: nil)
