@@ -59,6 +59,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         //add contents in scene
         self.addChild(menuNode)
         //self.addChild(player)
+        backgroundMusic?.volume = 0.7
         backgroundMusic?.play()
     }
     
@@ -275,6 +276,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
     //check if player is alive and present gameOverNode
     func isPlayerAlive(){
         if(!player.isAlive && !presentedGameOverNode){
+            playSound(fileName: "impact.mp3")
             saveHighscore()
             menuNode = MenuNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
             self.addChild(menuNode)
@@ -363,6 +365,11 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         
         let sceneViewController = self.view?.window?.rootViewController
         sceneViewController?.present(vc, animated: true, completion: nil)
+    }
+    
+    func playSound(fileName: String) {
+        let play = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
+        self.run(play)
     }
     
     func setPhysicsUp() {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66130FE226BC91D5002DA3C0 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 66130FE126BC91D5002DA3C0 /* green.png */; };
+		661C9A342821BA9200908B62 /* impact.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 661C9A332821BA9200908B62 /* impact.mp3 */; };
 		6626A65F26C2EC27009F78DA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A65E26C2EC27009F78DA /* Player.swift */; };
 		6626A66226C2FA46009F78DA /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A66126C2FA46009F78DA /* Enemy.swift */; };
 		6639ABED27AAF745005523EB /* astro-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6639ABEC27AAF745005523EB /* astro-2.png */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		66130FE126BC91D5002DA3C0 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		661C9A332821BA9200908B62 /* impact.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = impact.mp3; sourceTree = "<group>"; };
 		6626A65E26C2EC27009F78DA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6626A66126C2FA46009F78DA /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		6639ABEC27AAF745005523EB /* astro-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "astro-2.png"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				66FA347428187CA20053630A /* blueberry.wav */,
+				661C9A332821BA9200908B62 /* impact.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */,
 				C61DEB4D22514B09004BAADF /* Main.storyboard in Resources */,
+				661C9A342821BA9200908B62 /* impact.mp3 in Resources */,
 				C61DEB4F22514B0A004BAADF /* Assets.xcassets in Resources */,
 				C61DEB5222514B0A004BAADF /* LaunchScreen.storyboard in Resources */,
 				66FA3469281872A90053630A /* et.png in Resources */,
