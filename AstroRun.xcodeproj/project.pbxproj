@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		66130FE226BC91D5002DA3C0 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 66130FE126BC91D5002DA3C0 /* green.png */; };
 		661C9A342821BA9200908B62 /* impact.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 661C9A332821BA9200908B62 /* impact.mp3 */; };
 		6626A65F26C2EC27009F78DA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A65E26C2EC27009F78DA /* Player.swift */; };
 		6626A66226C2FA46009F78DA /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6626A66126C2FA46009F78DA /* Enemy.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		66130FE126BC91D5002DA3C0 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		661C9A332821BA9200908B62 /* impact.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = impact.mp3; sourceTree = "<group>"; };
 		6626A65E26C2EC27009F78DA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6626A66126C2FA46009F78DA /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 		C67BF9242253A2C100DA60B3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				66130FE126BC91D5002DA3C0 /* green.png */,
 				66A391CD26BDA93D00DC0E85 /* Starfield2.png */,
 				6639ABEC27AAF745005523EB /* astro-2.png */,
 				66FA3466281872A80053630A /* et.png */,
@@ -272,7 +269,6 @@
 				66FA3469281872A90053630A /* et.png in Resources */,
 				66FA347528187CA20053630A /* blueberry.wav in Resources */,
 				6639ABED27AAF745005523EB /* astro-2.png in Resources */,
-				66130FE226BC91D5002DA3C0 /* green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

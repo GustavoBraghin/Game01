@@ -36,4 +36,14 @@ class Player: SKSpriteNode {
         //this makes the player stop in the walls
         self.physicsBody?.isDynamic = true
     }
+    
+    func blink() {
+        let invisible = SKAction.fadeOut(withDuration: 0.25)
+        let visible = SKAction.fadeIn(withDuration: 0.25)
+        let wait = SKAction.wait(forDuration: 0.2)
+        
+        let seq = SKAction.sequence([invisible, wait, visible])
+        let rep = SKAction.repeat(seq, count: 3)
+        self.run(rep)
+    }
 }
