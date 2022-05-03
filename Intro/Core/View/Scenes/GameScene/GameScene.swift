@@ -89,7 +89,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             case "playAgain" :
             menuNode.removeFromParent()
             
-            player.isAlive = true
+            player.isAlive = 2
             
             score = 0
             updateScoreLabel()
@@ -256,7 +256,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         //if let enemy = childNode(withName: "enemy"){
         self.enumerateChildNodes(withName: "enemy") { node, Error in
             
-            if(!self.player.isAlive){
+            if(self.player.isAlive == 0){
                 node.removeFromParent()
             }
 
@@ -268,15 +268,15 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             
             if node.intersects(self.player){
                 node.removeFromParent()
-                self.player.isAlive = false
+                self.playSound(fileName: "impact.mp3")
+                self.player.isAlive -= 1
             }
         }
     }
     
     //check if player is alive and present gameOverNode
     func isPlayerAlive(){
-        if(!player.isAlive && !presentedGameOverNode){
-            playSound(fileName: "impact.mp3")
+        if(player.isAlive == 0 && !presentedGameOverNode){
             saveHighscore()
             menuNode = MenuNode(size: size, position: CGPoint(x: (size.width)/2, y: (size.height)/2))
             self.addChild(menuNode)
@@ -286,7 +286,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             
             self.pauseEnemyGeneration()
             
-        }else if(player.isAlive){
+        }else if(player.isAlive > 0){
             moveBackground()
         }
     }
