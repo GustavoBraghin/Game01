@@ -89,7 +89,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             case "playAgain" :
             menuNode.removeFromParent()
             
-            player.isAlive = 10
+            player.isAlive = 2
             
             score = 0
             updateScoreLabel()
@@ -260,13 +260,13 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
                 node.removeFromParent()
             }
 
-            if (node.intersects(self) == false) {
+            if (node.intersects(self) == false && !self.player.isBliking) {
                 node.removeFromParent()
                 self.score += 1
                 self.updateScoreLabel()
             }
             
-            if node.intersects(self.player){
+            if node.intersects(self.player) && !self.player.isBliking {
                 node.removeFromParent()
                 self.playSound(fileName: "impact.mp3")
                 self.player.blink()
