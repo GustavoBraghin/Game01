@@ -12,7 +12,7 @@ import AVKit
 import GameKit
 
 // Declaração da minha classe GameScene, que herda de SKScene
-class GameScene: SKScene {
+class GameScene: SKScene, GKGameCenterControllerDelegate {
     
     var player: Player
     var enemy: Enemy
@@ -304,6 +304,26 @@ class GameScene: SKScene {
         }
     }
     
+    func saveScoreGameCenter(){
+        let player = GKLocalPlayer.local
+        if player.isAuthenticated {
+            
+            let myLeaderboardID = ""
+            let scoreReporter = GKScore(leaderboardIdentifier: myLeaderboardID)
+            
+            scoreReporter.value = Int64(score)
+        
+            GKScore.report([scoreReporter]) { error in
+                guard error == nil else {
+                    print("An error has occured:")
+                    print(error?.localizedDescription ?? "")
+                    return
+                }
+                print("Success! Sending highscore of \(self.score) to leaderboard")
+            }
+        }
+    }
+    
 //    func saveHighscoreGameCenter(highscore: Int) {
 //        print ("You have a high score!")
 //        print("\n Attempting to authenticating with GC...")
@@ -330,6 +350,16 @@ class GameScene: SKScene {
 //        }
 //    }
     
+    func showLeaderboard(){
+        let vc = GKGameCenterViewController()
+        vc.gameCenterDelegate = self
+        vc.viewState = .leaderboards
+        vc.leaderboardIdentifier = ""
+        
+        let sceneViewController = self.view?.window?.rootViewController
+        sceneViewController?.present(vc, animated: true, completion: nil)
+    }
+    
     func setPhysicsUp() {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -6.8)
@@ -339,4 +369,10 @@ class GameScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+extension GameScene {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true)
+    }
 }
