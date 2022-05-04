@@ -68,6 +68,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
         createEnemy()
+        createHeart()
         pauseEnemyGeneration()
     }
     
@@ -95,6 +96,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             
             score = 0
             updateScoreLabel()
+            lifeLabel.text = "♥️"
             scoreLabel.isHidden = false
             lifeLabel.isHidden = false
             
@@ -151,6 +153,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Chamado antes de cada frame ser renderizado na tela
         removeEnemyNode()
+        removeHeartNode()
         
         //when player dies, this function pause nodes and present gameOverNode
         isPlayerAlive()
@@ -173,6 +176,27 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
         let repeatForever = SKAction.repeatForever(sequence)
         
         self.run(repeatForever, withKey: "createEnemy")
+    }
+    
+    func createHeart(){
+        
+        //GENERATION OF HEARTS
+        let createHeart = SKAction.run {
+            if(self.player.isAlive == 1){
+                let xPosition = CGFloat.random(in: self.size.width*0.08...self.size.width*0.92)
+                let yPosition = CGFloat(self.size.height*1)
+                let heart = self.enemy.createEnemy(spriteName: "heart", position: CGPoint(x: xPosition, y: yPosition))
+                heart.setScale(0.25)
+                heart.name = "heart"
+                self.addChild(heart)
+            }
+        }
+        
+        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 3...6)))
+        let sequence = SKAction.sequence([createHeart, waitInBetween])
+        let repeatForever = SKAction.repeatForever(sequence)
+        
+        self.run(repeatForever, withKey: "createHeart")
     }
     
     /**
@@ -288,6 +312,24 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
                 if(self.player.isAlive > 0) {
                     self.player.blink()
                 }
+            }
+        }
+    }
+    
+    func removeHeartNode(){
+        
+        //if let enemy = childNode(withName: "enemy"){
+        self.enumerateChildNodes(withName: "heart") { node, Error in
+            
+            if(self.player.isAlive == 0 || node.intersects(self) == false){
+                node.removeFromParent()
+            }
+            
+            if node.intersects(self.player) {
+                node.removeFromParent()
+                //self.playSound(fileName: "impact.mp3")
+                self.player.isAlive += 1
+                self.lifeLabel.text = "♥️"
             }
         }
     }

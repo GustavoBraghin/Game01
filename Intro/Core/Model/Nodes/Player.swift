@@ -44,9 +44,11 @@ class Player: SKSpriteNode {
         let visible = SKAction.fadeIn(withDuration: 0.25)
         let wait = SKAction.wait(forDuration: 0.2)
         let setBliking = SKAction.run({
+            self.physicsBody = nil
             self.isBliking = true
         })
         let setNotBliking = SKAction.run({
+            self.setupDefaultPhysicsBody()
             self.isBliking = false
         })
         
