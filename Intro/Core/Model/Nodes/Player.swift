@@ -34,7 +34,7 @@ class Player: SKSpriteNode {
         self.position = position
         self.zPosition = 1
         self.setScale(0.7)
-        self.setupDefaultPhysicsBody()
+        //self.setupDefaultPhysicsBody()
         //this makes the player stop in the walls
         self.physicsBody?.isDynamic = true
     }
@@ -50,6 +50,7 @@ class Player: SKSpriteNode {
         let setNotBliking = SKAction.run({
             self.setupDefaultPhysicsBody()
             self.isBliking = false
+            print(self.physicsBody ?? "")
         })
         
         let seq = SKAction.sequence([invisible, wait, visible])
