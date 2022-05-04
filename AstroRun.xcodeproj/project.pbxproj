@@ -15,6 +15,7 @@
 		66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CD26BDA93D00DC0E85 /* Starfield2.png */; };
 		66B8BCAF2822F1210097C3E0 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B8BCAE2822F1210097C3E0 /* heart.png */; };
 		66B8BCB52823020A0097C3E0 /* gamecenterimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B8BCB42823020A0097C3E0 /* gamecenterimage.png */; };
+		66B8BCB7282311850097C3E0 /* upgrade.wav in Resources */ = {isa = PBXBuildFile; fileRef = 66B8BCB6282311850097C3E0 /* upgrade.wav */; };
 		66C91B07281C7C2B00A6C332 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C91B06281C7C2B00A6C332 /* GameKit.framework */; };
 		66FA3469281872A90053630A /* et.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FA3466281872A80053630A /* et.png */; };
 		66FA347528187CA20053630A /* blueberry.wav in Resources */ = {isa = PBXBuildFile; fileRef = 66FA347428187CA20053630A /* blueberry.wav */; };
@@ -39,6 +40,7 @@
 		66A391CD26BDA93D00DC0E85 /* Starfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield2.png; sourceTree = "<group>"; };
 		66B8BCAE2822F1210097C3E0 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		66B8BCB42823020A0097C3E0 /* gamecenterimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamecenterimage.png; sourceTree = "<group>"; };
+		66B8BCB6282311850097C3E0 /* upgrade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upgrade.wav; sourceTree = "<group>"; };
 		66C91B06281C7C2B00A6C332 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		66FA3466281872A80053630A /* et.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = et.png; sourceTree = "<group>"; };
 		66FA347428187CA20053630A /* blueberry.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blueberry.wav; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				66FA347428187CA20053630A /* blueberry.wav */,
 				661C9A332821BA9200908B62 /* impact.mp3 */,
+				66B8BCB6282311850097C3E0 /* upgrade.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				66B8BCB52823020A0097C3E0 /* gamecenterimage.png in Resources */,
 				66FA3469281872A90053630A /* et.png in Resources */,
 				66FA347528187CA20053630A /* blueberry.wav in Resources */,
+				66B8BCB7282311850097C3E0 /* upgrade.wav in Resources */,
 				6639ABED27AAF745005523EB /* astro-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

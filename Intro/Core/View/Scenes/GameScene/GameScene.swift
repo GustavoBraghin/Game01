@@ -329,7 +329,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             
             if node.intersects(self.player) {
                 node.removeFromParent()
-                //self.playSound(fileName: "impact.mp3")
+                self.playSound(fileName: "upgrade.wav")
                 self.player.isAlive += 1
                 self.lifeLabel.text = "♥️"
             }
