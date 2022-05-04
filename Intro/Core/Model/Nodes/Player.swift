@@ -34,7 +34,7 @@ class Player: SKSpriteNode {
         self.position = position
         self.zPosition = 1
         self.setScale(0.7)
-        //self.setupDefaultPhysicsBody()
+        self.setupDefaultPhysicsBody()
         //this makes the player stop in the walls
         self.physicsBody?.isDynamic = true
     }
