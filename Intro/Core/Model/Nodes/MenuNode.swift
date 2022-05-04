@@ -15,7 +15,7 @@ class MenuNode: SKNode{
     var mainMenuButton = SKShapeNode()
     var highscoreLabel = SKLabelNode()
     var tapToPlayLabel = SKLabelNode()
-    var gameCenterButton = SKLabelNode()
+    var gameCenterButton = SKSpriteNode()
     
     //backgroundMask of gameOverNode
     var background = SKShapeNode()
@@ -29,28 +29,7 @@ class MenuNode: SKNode{
         setBg(size: size, position: position)
         setPlayButton(size: size, position: position)
         setGameCenterButton(size: size)
-        //setMainMenuButton(size: size, position: position)
     }
-    
-    //set play button with color, shape, position, and name
-//    func setPlayButton(size: CGSize, position: CGPoint){
-//        playButton = SKShapeNode(rectOf: CGSize(width: size.width * 0.3, height: size.height * 0.08), cornerRadius: 15)
-//        playButton.fillColor = UIColor(red: 143/255, green: 183/255, blue: 36/255, alpha: 1)
-//        playButton.strokeColor = .clear
-//        //playButton.position = CGPoint(x: position.x, y: position.y * 1.15)
-//        playButton.position = position
-//        playButton.zPosition = 151
-//        playButton.name = "playAgain"
-//
-//        let labelNode = SKLabelNode(fontNamed: "AvenirNext-Bold")
-//        labelNode.color = .white
-//        labelNode.verticalAlignmentMode = .center
-//        labelNode.text = "Play"
-//        labelNode.zPosition = 151
-//        labelNode.name = "playAgain"
-//
-//        playButton.addChild(labelNode)
-//    }
     
     func setPlayButton(size: CGSize, position: CGPoint){
         highscoreLabel = SKLabelNode(fontNamed: "Avenir Next Bold")
@@ -74,35 +53,15 @@ class MenuNode: SKNode{
         self.addChild(tapToPlayLabel)
     }
     
-    func setGameCenterButton(size: CGSize) {
-        gameCenterButton = SKLabelNode(fontNamed: "Avenir Next Bold")
-        gameCenterButton.fontColor = .white
-        gameCenterButton.text = "GC"
-        gameCenterButton.position = CGPoint(x: size.width * 0.88, y: size.height * 0.88)
+    func setGameCenterButton(size: CGSize){
+        gameCenterButton = SKSpriteNode(imageNamed: "gamecenterimage")
+        gameCenterButton.position = CGPoint(x: size.width * 0.88, y: size.height * 0.9)
         gameCenterButton.zPosition = 152
+        gameCenterButton.setScale(0.089)
         gameCenterButton.name = "gameCenterButton"
         
         self.addChild(gameCenterButton)
     }
-    
-    //set play button with color, shape, position, and name
-//    func setMainMenuButton(size: CGSize, position: CGPoint){
-//        mainMenuButton = SKShapeNode(rectOf: CGSize(width: size.width * 0.3, height: size.height * 0.08), cornerRadius: 15)
-//        mainMenuButton.fillColor = UIColor(red: 143/255, green: 183/255, blue: 36/255, alpha: 1)
-//        mainMenuButton.strokeColor = .clear
-//        mainMenuButton.position = CGPoint(x: position.x, y: position.y * 0.85)
-//        mainMenuButton.zPosition = 151
-//        mainMenuButton.name = "mainMenu"
-//
-//        let labelNode = SKLabelNode(fontNamed: "AvenirNext-Bold")
-//        labelNode.color = .white
-//        labelNode.verticalAlignmentMode = .center
-//        labelNode.text = "Menu"
-//        labelNode.zPosition = 151
-//        labelNode.name = "mainMenu"
-//
-//        mainMenuButton.addChild(labelNode)
-//    }
     
     //set background with color, shape, and position
     func setBg(size: CGSize, position: CGPoint){

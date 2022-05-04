@@ -14,6 +14,7 @@
 		666682672795E2A6005F2DA3 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666682662795E2A6005F2DA3 /* MenuNode.swift */; };
 		66A391D026BDA93D00DC0E85 /* Starfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A391CD26BDA93D00DC0E85 /* Starfield2.png */; };
 		66B8BCAF2822F1210097C3E0 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B8BCAE2822F1210097C3E0 /* heart.png */; };
+		66B8BCB52823020A0097C3E0 /* gamecenterimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B8BCB42823020A0097C3E0 /* gamecenterimage.png */; };
 		66C91B07281C7C2B00A6C332 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C91B06281C7C2B00A6C332 /* GameKit.framework */; };
 		66FA3469281872A90053630A /* et.png in Resources */ = {isa = PBXBuildFile; fileRef = 66FA3466281872A80053630A /* et.png */; };
 		66FA347528187CA20053630A /* blueberry.wav in Resources */ = {isa = PBXBuildFile; fileRef = 66FA347428187CA20053630A /* blueberry.wav */; };
@@ -37,6 +38,7 @@
 		666682662795E2A6005F2DA3 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
 		66A391CD26BDA93D00DC0E85 /* Starfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starfield2.png; sourceTree = "<group>"; };
 		66B8BCAE2822F1210097C3E0 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		66B8BCB42823020A0097C3E0 /* gamecenterimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamecenterimage.png; sourceTree = "<group>"; };
 		66C91B06281C7C2B00A6C332 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		66FA3466281872A80053630A /* et.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = et.png; sourceTree = "<group>"; };
 		66FA347428187CA20053630A /* blueberry.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blueberry.wav; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				6639ABEC27AAF745005523EB /* astro-2.png */,
 				66FA3466281872A80053630A /* et.png */,
 				66B8BCAE2822F1210097C3E0 /* heart.png */,
+				66B8BCB42823020A0097C3E0 /* gamecenterimage.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				661C9A342821BA9200908B62 /* impact.mp3 in Resources */,
 				C61DEB4F22514B0A004BAADF /* Assets.xcassets in Resources */,
 				C61DEB5222514B0A004BAADF /* LaunchScreen.storyboard in Resources */,
+				66B8BCB52823020A0097C3E0 /* gamecenterimage.png in Resources */,
 				66FA3469281872A90053630A /* et.png in Resources */,
 				66FA347528187CA20053630A /* blueberry.wav in Resources */,
 				6639ABED27AAF745005523EB /* astro-2.png in Resources */,

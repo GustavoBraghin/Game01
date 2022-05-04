@@ -91,7 +91,9 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             //in case of player is dead and want to play again (RESTART GAME)
             case "playAgain" :
             menuNode.removeFromParent()
-            
+//            if #available(iOS 14.0, *) {
+//                GKAccessPoint.shared.isActive = false
+//            }
             player.isAlive = 2
             
             score = 0
