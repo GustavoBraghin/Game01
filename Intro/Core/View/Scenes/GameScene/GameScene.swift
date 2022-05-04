@@ -192,7 +192,7 @@ class GameScene: SKScene, GKGameCenterControllerDelegate {
             }
         }
         
-        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 3...6)))
+        let waitInBetween = SKAction.wait(forDuration: (TimeInterval.random(in: 5...25)))
         let sequence = SKAction.sequence([createHeart, waitInBetween])
         let repeatForever = SKAction.repeatForever(sequence)
         
